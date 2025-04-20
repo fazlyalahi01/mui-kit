@@ -1,10 +1,37 @@
 changes pushed from owner account. This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+MUI Component Library
+This is an open source Material-UI (MUI) component library built with Next.js, offering a wide range of design variants for core MUI components like Button, Modal, Popover, and more. Our goal is to provide developers with flexible, customizable, and visually diverse components to enhance their React applications.
+Features
 
-## Getting Started
+Extensive Design Variants: Multiple styles for MUI components (e.g., Button, Modal, Popover) to suit various design needs.
+Built with Next.js: Leverages Next.js for a modern, performant development experience.
+Customizable: Easily adapt components to match your project’s theme or branding.
+Open Source: Licensed under MIT License to encourage community contributions.
 
-First, run the development server:
+Getting Started
+Prerequisites
 
-```bash
+Node.js (v18 or later)
+npm, yarn, pnpm, or bun
+
+Installation
+
+Clone the repository:git clone https://github.com/your-username/mui-component-library.git
+cd mui-component-library
+
+
+Install dependencies:npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+
+
+
+Running the Development Server
+Start the development server:
 npm run dev
 # or
 yarn dev
@@ -12,25 +39,53 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the component library in action.
+Usage
+Import components into your Next.js or React project:
+import { Button } from './components/Button';
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+export default function Page() {
+  return <Button variant="primary" design="rounded">Click Me</Button>;
+}
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Explore the /components directory for available components and their variants. Check the documentation for detailed usage guides.
+Documentation
 
-## Learn More
+Component Reference (WIP: Coming soon!)
+Design Variants (WIP: Coming soon!)
+Customization Guide (WIP: Coming soon!)
 
-To learn more about Next.js, take a look at the following resources:
+Contributing
+We welcome contributions to enhance our component library! To contribute:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fork the Repository: Click the "Fork" button on GitHub and clone your fork:git clone https://github.com/your-username/mui-component-library.git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Sync with Upstream:git remote add upstream https://github.com/your-username/mui-component-library.git
+git pull upstream main
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create a Branch: Work on a feature or bug fix:git checkout -b feature/new-button-variant
+
+
+Submit a Pull Request: Push your changes and open a PR to the main branch.
+Sign the CLA: All contributors must sign our Contributor License Agreement to support future monetization or licensing options.
+
+See CONTRIBUTING.md for detailed guidelines, coding standards, and issue reporting.
+Issues
+Report bugs or suggest features via the Issues tab. Use our templates for bug reports or feature requests to ensure clarity.
+License
+This project is licensed under the MIT License.
+Learn More
+
+MUI Documentation - Learn about MUI core components.
+Next.js Documentation - Explore Next.js features and APIs.
+Next.js Tutorial - Interactive Next.js learning resource.
+
+Deploy on Vercel
+Deploy your own instance of the library with the Vercel Platform. See the Next.js deployment documentation for details.
+Contact
+For questions or feedback, open an issue or reach out via GitHub Discussions.
+
+Built with ❤️ by [Your Name] and the open source community.

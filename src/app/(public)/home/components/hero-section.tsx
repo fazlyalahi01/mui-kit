@@ -1,14 +1,15 @@
 "use client";
 import {
-    Box,
-    Button,
-    Chip,
-    Paper,
-    Stack,
-    Typography,
-    useMediaQuery,
-    useTheme,
+  Box,
+  Button,
+  Chip,
+  Paper,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
+import PathSVG from "./PathSVG";
 
 export const HeroSection = () => {
   const theme = useTheme();
@@ -20,9 +21,24 @@ export const HeroSection = () => {
       spacing={{ xs: 4, md: 8 }}
       alignItems="center"
       justifyContent="space-between"
+      sx={{
+        mt: 8,
+        mb: 6,
+      }}
     >
       {/* Left text box */}
-      <Box sx={{ maxWidth: 800 }}>
+      <Box sx={{ maxWidth: 800, position: "relative" }}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: -60,
+            left: 0,
+            zIndex: 1,
+          }}
+        >
+          <PathSVG />
+        </Box>
+
         <Typography
           variant="h1"
           gutterBottom
@@ -55,7 +71,6 @@ export const HeroSection = () => {
           <Button variant="contained" size="large">
             Get Started
           </Button>
-          
         </Stack>
       </Box>
 

@@ -14,7 +14,7 @@ export const contentSidebarPathGroups: {
   path?: string;
 }[] = [
   { key: "DOCS", label: "Docs", items: docs },
-  { key: "ELEMENTS", label: "Elements", path: "elements", items: [] },
-  { key: "BLOCKS", label: "Blocks", path: "blocks", items: [] },
+  { key: "ELEMENTS", label: "Elements", path: "/elements", items: [] },
+  { key: "BLOCKS", label: "Blocks", path: "/blocks", items: [] },
   // { key: "KITS", label: "Kits", items: [], path: "/kits" },
 ];

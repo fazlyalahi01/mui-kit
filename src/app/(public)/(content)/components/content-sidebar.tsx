@@ -23,9 +23,15 @@ export const ContentSidebar = ({
 }: ContentSidebarProps) => {
   const [open, setOpen] = React.useState<TContentSidebarMode>("DOCS");
   const pathname = usePathname();
+  console.log(pathname, "pathname....");
 
   const handleClick = (mode: TContentSidebarMode) => {
     setOpen((prev) => (prev === mode ? "" : mode));
+  };
+
+  const isActive = (path: string) => {
+    console.log(path, "path......");
+    return pathname === path;
   };
 
   return (
@@ -66,7 +72,6 @@ export const ContentSidebar = ({
                   >
                     <List>
                       {items.map((item) => {
-                        const isActive = pathname === item.path;
                         return (
                           <ListItem
                             key={item.path}
@@ -74,8 +79,19 @@ export const ContentSidebar = ({
                             sx={{ pl: 1 }}
                           >
                             <Link href={item.path} legacyBehavior passHref>
-                              <ListItemButton selected={isActive}>
-                                <ListItemText primary={item.label} />
+                              <ListItemButton>
+                                <ListItemText
+                                  primary={item.label}
+                                  slotProps={{
+                                    primary: {
+                                      sx: {
+                                        color: isActive(item.path)
+                                          ? "primary.main"
+                                          : "text.primary",
+                                      },
+                                    },
+                                  }}
+                                />
                               </ListItemButton>
                             </Link>
                           </ListItem>
@@ -88,7 +104,18 @@ export const ContentSidebar = ({
                 <ListItem key={path || key} disablePadding>
                   <Link href={path || ""} legacyBehavior passHref>
                     <ListItemButton>
-                      <ListItemText primary={label} />
+                      <ListItemText
+                        primary={label}
+                        slotProps={{
+                          primary: {
+                            sx: {
+                              color: isActive(path || "")
+                                ? "primary.main"
+                                : "text.primary",
+                            },
+                          },
+                        }}
+                      />
                     </ListItemButton>
                   </Link>
                 </ListItem>

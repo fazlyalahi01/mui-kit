@@ -152,10 +152,8 @@ export const Header = () => {
         sx={{
           display: { xs: "block", md: "none" },
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: 280, backgroundColor: "background.default" },
-          // background: "red",
         }}
       >
-        {/* {drawer} */}
         <ContentSidebar />
       </Drawer>
     </AppBar>

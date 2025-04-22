@@ -1,4 +1,4 @@
-changes pushed from owner account. This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 MUI Component Library
 This is an open source Material-UI (MUI) component library built with Next.js, offering a wide range of design variants for core MUI components like Button, Modal, Popover, and more. Our goal is to provide developers with flexible, customizable, and visually diverse components to enhance their React applications.
 Features
@@ -21,24 +21,12 @@ cd mui-component-library
 
 
 Install dependencies:npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
 
 
 
 Running the Development Server
 Start the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 
 Open http://localhost:3000 in your browser to see the component library in action.
 Usage
@@ -88,4 +76,4 @@ Deploy your own instance of the library with the Vercel Platform. See the Next.j
 Contact
 For questions or feedback, open an issue or reach out via GitHub Discussions.
 
-Built with ❤️ by [Your Name] and the open source community.
+Built with ❤️ by fazlyalahi01 and the open source community.

@@ -1,26 +1,22 @@
 "use client";
+import { ContentSidebar } from "@/app/(public)/(content)/components/content-sidebar";
+import { useColorMode } from "@/providers/app-provider";
 import { Icon } from "@iconify/react";
 import {
   AppBar,
   Box,
   Button,
   Container,
-  Divider,
   Drawer,
   IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
   Stack,
   Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Iconify } from "./iconify";
-import { useColorMode } from "@/providers/app-provider";
-import Link from "next/link";
 
 // Navigation items
 const pages = ["Docs", "Kits", "Contact"];
@@ -46,49 +42,7 @@ export const Header = () => {
     router.push(`/${page.toLowerCase()}`);
   };
 
-  // Mobile drawer content
-  const drawer = (
-    <Box onClick={handleCloseNavMenu} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2, fontWeight: "bold" }}>
-        <Box component="span" sx={{ color: "primary.main" }}>
-          Material
-        </Box>
-        UI
-      </Typography>
-      <Divider />
-      <List>
-        {pages.map((page) => (
-          <ListItem key={page} disablePadding>
-            <ListItemButton
-              sx={{ textAlign: "center" }}
-              onClick={handleNavigate(page)}
-            >
-              <ListItemText primary={page} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-        <ListItem disablePadding>
-          <ListItemButton sx={{ textAlign: "center" }}>
-            <ListItemText primary="Login" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton
-            sx={{
-              textAlign: "center",
-              // bgcolor: "primary.main",
-              color: "white",
-              my: 1,
-              mx: 2,
-              borderRadius: 1,
-            }}
-          >
-            <ListItemText primary="Sign Up" />
-          </ListItemButton>
-        </ListItem>
-      </List>
-    </Box>
-  );
+  
 
   return (
     <AppBar
@@ -190,14 +144,19 @@ export const Header = () => {
         open={mobileOpen}
         onClose={handleCloseNavMenu}
         ModalProps={{
-          keepMounted: true, // Better mobile performance
+          keepMounted: true, 
         }}
+        color="red"
+        
+        variant="temporary"
         sx={{
           display: { xs: "block", md: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: 280 },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: 280, backgroundColor: "background.default" },
+          // background: "red",
         }}
       >
-        {drawer}
+        {/* {drawer} */}
+        <ContentSidebar />
       </Drawer>
     </AppBar>
   );

@@ -10,10 +10,16 @@ import {
   ListItemText,
 } from "@mui/material";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 export const ContentSidebar = () => {
   const [open, setOpen] = React.useState<TContentSidebarMode>("DOCS");
+  const pathname = usePathname();
+  const isActive = (path: string) => {
+    console.log(pathname, path, "pathname, path....");
+    return pathname.split("/")[1] === path;
+  };
 
   const handleClick = (mode: TContentSidebarMode) => {
     setOpen((prev) => (prev === mode ? "" : mode));
@@ -38,10 +44,15 @@ export const ContentSidebar = () => {
                     }
                   />
                 </ListItemButton>
-                <Collapse in={open === key} timeout="auto" unmountOnExit>
+                <Collapse
+                  in={open === key}
+                  timeout="auto"
+                  unmountOnExit
+                  sx={{ borderLeft: "1px dashed gray" }}
+                >
                   <List>
                     {items.map((item) => (
-                      <ListItem key={item.path} disablePadding>
+                      <ListItem key={item.path} disablePadding sx={{ pl: 1 }}>
                         <Link href={item.path} legacyBehavior passHref>
                           <ListItemButton component="a">
                             <ListItemText primary={item.label} />
@@ -55,7 +66,12 @@ export const ContentSidebar = () => {
             ) : (
               <ListItem key={path || key} disablePadding>
                 <Link href={path || ""} legacyBehavior passHref>
-                  <ListItemButton component="a">
+                  <ListItemButton
+                    component="a"
+                    sx={{
+                      color: isActive(path || "") ? "primary.main" : "inherit",
+                    }}
+                  >
                     <ListItemText primary={label} />
                   </ListItemButton>
                 </Link>

@@ -1,7 +1,7 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import AppProvider from "@/providers/app-provider";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -31,9 +31,9 @@ export default function RootLayout({
       <body>
         <AppProvider>
           <Header />
-          <Container maxWidth="xl" >
-            <Box>{children}</Box>
-          </Container>
+
+          <Box sx={{ width: "100%", px: 0 }}>{children}</Box>
+
           <Footer />
         </AppProvider>
       </body>

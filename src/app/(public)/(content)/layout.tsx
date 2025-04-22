@@ -6,17 +6,35 @@ export default function ContentLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // comment
   return (
     <Grid
       container
-      spacing={2}
-      sx={{ borderLeft: "1px dashed gray", borderRight: "1px dashed gray",  height: "calc(100vh - 124px)" }}
+      spacing={0}
+      sx={{
+        borderLeft: "1px dashed gray",
+        borderRight: "1px dashed gray",
+        height: "calc(100vh - 124px)",
+      }}
     >
-      <Grid size={2} sx={{ p: 2 }}>
+      {/* Sidebar (only visible on md and above) */}
+      <Grid
+        size={{ xs: 0, md: 3 }}
+        sx={{
+          display: { xs: "none", md: "block" },
+          p: 2,
+          borderRight: "1px dashed gray",
+        }}
+      >
         <ContentSidebar />
       </Grid>
-      <Grid size={10} sx={{ borderLeft: "1px dashed gray", p: 2 }}>
+
+      {/* Main content */}
+      <Grid
+        size={{ xs: 12, md: 9 }}
+        sx={{
+          p: 2,
+        }}
+      >
         {children}
       </Grid>
     </Grid>

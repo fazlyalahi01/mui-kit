@@ -1,19 +1,24 @@
-"use client"
+"use client";
 import { Box, Paper, Typography, useTheme } from "@mui/material";
 import { keyframes } from "@mui/system";
 
-
-const slideUp = keyframes`
+// Single left-to-right animation
+const slide = keyframes`
   0% {
-    transform: translateY(0);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateX(-50%);
   }
 `;
 
-// Sample data
-const testimonials = [
+interface Testimonial {
+  username: string;
+  handle: string;
+  review: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     username: "Sarah Johnson",
     handle: "@sarahj_dev",
@@ -46,20 +51,29 @@ const testimonials = [
   },
 ];
 
-const TestimonialCard = ({ username, handle, review }: { username: string; handle: string; review: string }) => {
-  const theme = useTheme();
+const duplicatedTestimonials = [...testimonials, ...testimonials];
 
+const TestimonialCard: React.FC<Testimonial> = ({ username, handle, review }) => {
+  const theme = useTheme();
   return (
     <Paper
       elevation={0}
       sx={{
         p: 3,
         borderRadius: 2,
-        backdropFilter: "blur(8px)",
-        backgroundColor: theme.palette.mode === "dark" ? "rgba(30, 30, 30, 0.9)" : "rgba(255, 255, 255, 0.1)",
-        border: `1px solid ${theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`,
-        color: theme.palette.mode === "dark" ? "white" : "text.primary",
         minHeight: 120,
+        width: { xs: 200, md: 250 },
+        backdropFilter: "blur(8px)",
+        backgroundColor:
+          theme.palette.mode === "dark"
+            ? "rgba(30,30,30,0.9)"
+            : "rgba(255,255,255,0.1)",
+        border: `1px solid ${
+          theme.palette.mode === "dark"
+            ? "rgba(255,255,255,0.1)"
+            : "rgba(0,0,0,0.1)"
+        }`,
+        color: theme.palette.mode === "dark" ? "white" : "text.primary",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -82,8 +96,14 @@ const TestimonialCard = ({ username, handle, review }: { username: string; handl
 
 export const Testimonials = () => {
   return (
-    <Box sx={{ py: 8, textAlign: "center", bgcolor: "background.default" }}>
-      {/* Heading */}
+    <Box
+      sx={{
+        py: 8,
+        textAlign: "center",
+        bgcolor: "background.default",
+        width: "100%",
+      }}
+    >
       <Typography variant="h4" fontWeight={600} gutterBottom>
         Loved by thousands of developers
       </Typography>
@@ -91,67 +111,46 @@ export const Testimonials = () => {
         Here&apos;s what some of our users have to say about MUI Kit.
       </Typography>
 
-      {/* Testimonial Grid */}
+      {/* Testimonial Rows */}
       <Box
         sx={{
-          position: "relative",
-          height: 400, 
+          display: "grid",
+          gridTemplateRows: { xs: "1fr", md: "1fr 1fr" },
+          gap: 4,
           overflow: "hidden",
-          display: "flex",
-          justifyContent: "center", 
-          gap: { xs: 2, md: 4 }, 
-          maxWidth: 900, 
-          mx: "auto", 
         }}
       >
-        {/* Column 1 */}
-        <Box
-          sx={{
-            width: { xs: 200, md: 250 },
-            display: "flex",
-            flexDirection: "column",
-            gap: 3,
-            animation: `${slideUp} 15s linear infinite`,
-          }}
-        >
-          <TestimonialCard {...testimonials[0]} />
-          <TestimonialCard {...testimonials[3]} />
-          <TestimonialCard {...testimonials[0]} /> 
-          <TestimonialCard {...testimonials[3]} />
+        {/* Top Row */}
+        <Box sx={{ width: "100%", overflow: "hidden" }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 3,
+              animation: `${slide} 30s linear infinite`,
+              width: "max-content",
+            }}
+          >
+            {duplicatedTestimonials.map((t, i) => (
+              <TestimonialCard key={`top-${i}`} {...t} />
+            ))}
+          </Box>
         </Box>
 
-        {/* Column 2 */}
-        <Box
-          sx={{
-            width: { xs: 200, md: 250 },
-            display: "flex",
-            flexDirection: "column",
-            gap: 3,
-            animation: `${slideUp} 18s linear infinite`,
-            mt: { xs: 4, md: 6 }, 
-          }}
-        >
-          <TestimonialCard {...testimonials[1]} />
-          <TestimonialCard {...testimonials[4]} />
-          <TestimonialCard {...testimonials[1]} /> 
-          <TestimonialCard {...testimonials[4]} />
-        </Box>
-
-        {/* Column 3 */}
-        <Box
-          sx={{
-            width: { xs: 200, md: 250 },
-            display: "flex",
-            flexDirection: "column",
-            gap: 3,
-            animation: `${slideUp} 20s linear infinite`,
-            mt: { xs: 2, md: 3 }, 
-          }}
-        >
-          <TestimonialCard {...testimonials[2]} />
-          <TestimonialCard {...testimonials[5]} />
-          <TestimonialCard {...testimonials[2]} /> 
-          <TestimonialCard {...testimonials[5]} />
+        {/* Bottom Row */}
+        <Box sx={{ width: "100%", overflow: "hidden", display: { xs: "none", md: "block" } }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 3,
+              flexDirection: "row-reverse",
+              animation: `${slide} 30s linear infinite`,
+              width: "max-content",
+            }}
+          >
+            {duplicatedTestimonials.map((t, i) => (
+              <TestimonialCard key={`bottom-${i}`} {...t} />
+            ))}
+          </Box>
         </Box>
       </Box>
     </Box>

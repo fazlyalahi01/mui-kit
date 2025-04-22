@@ -94,13 +94,14 @@ export default function FeatureCard({
           height: "100%",
           zIndex: 0,
           backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+            theme.palette.mode === "dark"
+              ? "linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)"
+              : "linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)",
           backgroundSize: "20px 20px",
           opacity: 0.5,
           borderRadius: 1,
         }}
       />
-
       {/* Shadow */}
       <Box
         ref={shadowRef}

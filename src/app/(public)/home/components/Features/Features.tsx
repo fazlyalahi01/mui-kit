@@ -22,7 +22,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <Box sx={{ mb: 8, px: 3 }}>
+    <Box sx={{ mb: 8 }}>
       <Box textAlign="center" maxWidth={600} mx="auto" mb={6}>
         <Typography variant="h4" component="h2" fontWeight={600} gutterBottom>
           Build beautiful UIs with MUi Kit
@@ -34,9 +34,14 @@ export default function FeaturesSection() {
       </Box>
 
       {/* cards */}
-      <Box display="flex" flexWrap="wrap" gap={4} justifyContent="center">
+      <Box
+        display="grid"
+        gap={4}
+        gridTemplateColumns={{ xs: "1fr", md: "repeat(3, 1fr)" }} 
+        width="100%" 
+      >
         {features.map((feature, index) => (
-          <Box key={index} width={{ xs: "100%", sm: "48%", md: "30%" }}>
+          <Box key={index}>
             <FeatureCard
               icon={feature.icon}
               title={feature.title}

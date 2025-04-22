@@ -1,7 +1,7 @@
 "use client";
 import { overviewItems } from "@/constants/component-overview-data";
 import { Icon } from "@iconify/react";
-import { Box, Button, Grid, Paper, Typography, useTheme } from "@mui/material";
+import { Box, Button, Chip, Grid, Paper, Stack, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 
 export const ComponentOverview = () => {
@@ -50,6 +50,10 @@ export const ComponentOverview = () => {
                   pointerEvents: "none",
                   zIndex: 1,
                 },
+                "&:hover": {
+                  transform: "translateY(-4px)",
+                },
+                transition: "transform 0.3s, background 0.3s",
               }}
             >
               {/* Background Grid */}
@@ -93,6 +97,19 @@ export const ComponentOverview = () => {
               >
                 {item.description}
               </Typography>
+              <Stack direction="row" justifyContent="center" flexWrap="wrap">
+                {item.tags.map((tag) => (
+                  <Link href={tag.url} key={tag.label} passHref>
+                    <Chip
+                      label={tag.label}
+                      size="small"
+                      clickable
+                      // component="a"
+                      sx={{ m: 0.5 }}
+                    />
+                  </Link>
+                ))}
+              </Stack>
               {item.button && (
                 <Box
                   sx={{ mt: "auto", textAlign: "center", marginTop: "1rem" }}

@@ -72,15 +72,6 @@ export default function FeatureCard({
         },
         "&:hover": {
           transform: "translateY(-4px)",
-          background: `linear-gradient(135deg, ${
-            theme.palette.mode === "dark"
-              ? "rgba(50, 50, 50, 0.9)"
-              : "rgba(200, 200, 200, 0.3)"
-          }, ${
-            theme.palette.mode === "dark"
-              ? "rgba(70, 70, 70, 0.9)"
-              : "rgba(220, 220, 220, 0.3)"
-          })`,
         },
       }}
     >
@@ -119,9 +110,6 @@ export default function FeatureCard({
           opacity: 0,
           transition: "opacity 0.15s",
           zIndex: 0,
-          "&:hover": {
-            opacity: 0.9,
-          },
         }}
       />
 

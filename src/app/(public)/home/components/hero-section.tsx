@@ -16,8 +16,14 @@ export const HeroSection = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   // Define theme-aware colors for background elements
-  const gradientFrom = theme.palette.mode === "dark" ? "rgba(30, 136, 229, 0.2)" : "rgba(33, 150, 243, 0.2)"; // Blue shades
-  const gradientTo = theme.palette.mode === "dark" ? "rgba(0, 229, 255, 0.2)" : "rgba(0, 188, 212, 0.2)"; // Cyan/Teal shades
+  const gradientFrom =
+    theme.palette.mode === "dark"
+      ? "rgba(30, 136, 229, 0.2)"
+      : "rgba(33, 150, 243, 0.2)"; // Blue shades
+  const gradientTo =
+    theme.palette.mode === "dark"
+      ? "rgba(0, 229, 255, 0.2)"
+      : "rgba(0, 188, 212, 0.2)"; // Cyan/Teal shades
   const lineColors = {
     blue: theme.palette.mode === "dark" ? "#42a5f5" : "#2196f3",
     indigo: theme.palette.mode === "dark" ? "#5c6bc0" : "#3f51b5",
@@ -30,10 +36,10 @@ export const HeroSection = () => {
         position: "relative",
         overflow: "hidden",
         py: 8,
-        px:2,
+        px: 2,
         mb: 6,
-        width: "100%", // Full width
-        maxWidth: "100%", // Ensure no constraints on width
+        width: "100%",
+        maxWidth: "100%",
       }}
     >
       {/* Background Elements */}
@@ -42,7 +48,7 @@ export const HeroSection = () => {
           position: "absolute",
           inset: 0,
           overflow: "hidden",
-          zIndex: -1, // Ensure background stays behind content
+          zIndex: -1,
         }}
       >
         {/* Gradient Circles */}
@@ -70,7 +76,7 @@ export const HeroSection = () => {
             filter: "blur(80px)",
           }}
         />
-        <Box
+        {/* <Box
           sx={{
             position: "absolute",
             bottom: 0,
@@ -81,10 +87,10 @@ export const HeroSection = () => {
             background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`,
             filter: "blur(80px)",
           }}
-        />
+        /> */}
 
         {/* Animated Lines */}
-        <Box sx={{ position: "absolute", inset: 0, opacity: 0.1 }}>
+        <Box sx={{ position: "absolute", inset: 0, opacity: 0.5,}}>
           {/* Horizontal Lines */}
           <Box
             sx={{
@@ -165,8 +171,9 @@ export const HeroSection = () => {
         sx={{
           position: "relative",
           zIndex: 1,
-          width: { xs: "100%", md: "83.33%" }, // w-10/12 on md and up
-          mx: "auto", // Center the content
+          maxWidth: "xl",
+          mx: "auto",
+          px:4, 
         }}
       >
         {/* Left text box */}

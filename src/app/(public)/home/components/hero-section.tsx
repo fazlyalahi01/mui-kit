@@ -211,7 +211,7 @@ export const HeroSection = () => {
             paragraph
             sx={{ mb: 4, fontSize: "1.1rem" }}
           >
-            Material UI is a comprehensive library of components that features
+            MUI KIT is a comprehensive library of components that features
             implementation of Google&apos;s Material Design system, providing
             ready-to-use UI elements for creating beautiful and responsive React
             applications.

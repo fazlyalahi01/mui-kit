@@ -24,13 +24,14 @@ export default function ContentLayout({
             display: { xs: "none", md: "block" },
             p: 2,
             borderRight: "1px dashed gray",
+            // overflow: "hidden",
           }}
         >
           <ContentSidebar />
         </Grid>
 
         <Grid
-          size={{ xs: 12, md: 9 }}
+          size={{ xs: 12, md: 10 }}
           sx={{
             p: 2,
           }}

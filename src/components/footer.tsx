@@ -35,7 +35,7 @@ export const Footer = () => {
               },
             }}
           >
-            Material UI
+            MUI KIT
           </Link>
           . The source code is available on{" "}
           <Link

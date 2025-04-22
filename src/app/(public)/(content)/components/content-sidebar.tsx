@@ -1,5 +1,4 @@
 "use client";
-import { Iconify } from "@/components/iconify";
 import { contentSidebarPathGroups } from "@/router/paths"; // Assume blocks is separate
 import { TContentSidebarMode } from "@/types/content.types";
 import {
@@ -16,10 +15,12 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 type ContentSidebarProps = {
-  variant?: 'sidebar' | 'drawer';
+  variant?: "sidebar" | "drawer";
 };
 
-export const ContentSidebar = ({ variant = 'sidebar' }: ContentSidebarProps) => {
+export const ContentSidebar = ({
+  variant = "sidebar",
+}: ContentSidebarProps) => {
   const [open, setOpen] = React.useState<TContentSidebarMode>("DOCS");
   const pathname = usePathname();
 
@@ -30,72 +31,50 @@ export const ContentSidebar = ({ variant = 'sidebar' }: ContentSidebarProps) => 
   return (
     <Box
       sx={{
-        width: variant === "drawer" ? "100%" : 280,
+        width: "100%",
         p: variant === "drawer" ? 2 : 0,
         pt: variant === "drawer" ? 4 : 0,
       }}
     >
-      {/* Render header in drawer if needed */}
       {variant === "drawer" && (
         <Typography variant="h6" sx={{ mb: 2, textAlign: "center" }}>
-          <Box component="span" sx={{ color: "primary.main" }}>MUI</Box> KIT
+          <Box component="span" sx={{ color: "primary.main" }}>
+            MUI
+          </Box>{" "}
+          KIT
         </Typography>
       )}
 
       <List>
         {contentSidebarPathGroups.map(({ key, label, items, path }) => {
           const hasChildren = items.length > 0;
-          const isChildActive = items.some((item) => pathname === item.path);
-          const isActive = pathname === path || isChildActive;
 
           return (
             <React.Fragment key={key}>
               {hasChildren ? (
                 <>
-                  <ListItemButton
-                    onClick={() => handleClick(key)}
-                    sx={{
-                      backgroundColor: isActive ? "action.selected" : "inherit",
-                      borderLeft: isActive ? "3px solid #1976d2" : "3px solid transparent",
-                    }}
-                  >
+                  <ListItemButton onClick={() => handleClick(key)}>
                     <ListItemText primary={label} />
-                    <Iconify
-                      icon={
-                        open === key
-                          ? "eva:arrow-ios-downward-fill"
-                          : "eva:arrow-ios-forward-fill"
-                      }
-                    />
                   </ListItemButton>
                   <Collapse
                     in={open === key}
                     timeout="auto"
                     unmountOnExit
                     sx={{
-                      borderLeft: "2px dashed #ccc",
                       ml: 1.5,
-                      pl: 1,
                     }}
                   >
                     <List>
                       {items.map((item) => {
                         const isActive = pathname === item.path;
                         return (
-                          <ListItem key={item.path} disablePadding sx={{ pl: 1 }}>
+                          <ListItem
+                            key={item.path}
+                            disablePadding
+                            sx={{ pl: 1 }}
+                          >
                             <Link href={item.path} legacyBehavior passHref>
-                              <ListItemButton
-                                component="a"
-                                selected={isActive}
-                                sx={{
-                                  borderLeft: isActive
-                                    ? "3px solid #1976d2"
-                                    : "3px solid transparent",
-                                  backgroundColor: isActive
-                                    ? "action.selected"
-                                    : "inherit",
-                                }}
-                              >
+                              <ListItemButton selected={isActive}>
                                 <ListItemText primary={item.label} />
                               </ListItemButton>
                             </Link>
@@ -108,17 +87,7 @@ export const ContentSidebar = ({ variant = 'sidebar' }: ContentSidebarProps) => 
               ) : (
                 <ListItem key={path || key} disablePadding>
                   <Link href={path || ""} legacyBehavior passHref>
-                    <ListItemButton
-                      component="a"
-                      sx={{
-                        borderLeft: isActive
-                          ? "3px solid #1976d2"
-                          : "3px solid transparent",
-                        backgroundColor: isActive
-                          ? "action.selected"
-                          : "inherit",
-                      }}
-                    >
+                    <ListItemButton>
                       <ListItemText primary={label} />
                     </ListItemButton>
                   </Link>
@@ -131,4 +100,3 @@ export const ContentSidebar = ({ variant = 'sidebar' }: ContentSidebarProps) => 
     </Box>
   );
 };
-

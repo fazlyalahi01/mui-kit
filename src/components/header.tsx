@@ -105,10 +105,10 @@ export const Header = () => {
               textDecoration: "none",
             }}
           >
-            <Box component="span" sx={{ color: "primary.main" }}>
-              Material
+            <Box component="span" sx={{ color: "primary.main", mr: 1 }}>
+              MUI
             </Box>{" "}
-            UI
+            KIT
           </Typography>
 
           {/* Desktop navigation */}

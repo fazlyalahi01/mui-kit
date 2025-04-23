@@ -1,4 +1,5 @@
 "use client";
+import { Logo } from "@/components/core/logo";
 import { contentSidebarPathGroups } from "@/router/paths"; // Assume blocks is separate
 import { TContentSidebarMode } from "@/types/content.types";
 import {
@@ -8,7 +9,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Typography,
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,16 +23,12 @@ export const ContentSidebar = ({
 }: ContentSidebarProps) => {
   const [open, setOpen] = React.useState<TContentSidebarMode>("DOCS");
   const pathname = usePathname();
-  console.log(pathname, "pathname....");
 
   const handleClick = (mode: TContentSidebarMode) => {
     setOpen((prev) => (prev === mode ? "" : mode));
   };
 
-  const isActive = (path: string) => {
-    console.log(path, "path......");
-    return pathname === path;
-  };
+  const isActive = (path: string) => pathname === path;
 
   return (
     <Box
@@ -43,12 +39,9 @@ export const ContentSidebar = ({
       }}
     >
       {variant === "drawer" && (
-        <Typography variant="h6" sx={{ mb: 2, textAlign: "center" }}>
-          <Box component="span" sx={{ color: "primary.main" }}>
-            MUI
-          </Box>{" "}
-          KIT
-        </Typography>
+        <Box sx={{ ml: 2 }}>
+          <Logo />
+        </Box>
       )}
 
       <List>

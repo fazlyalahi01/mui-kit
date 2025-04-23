@@ -36,7 +36,7 @@ export const HeroSection = () => {
         position: "relative",
         overflow: "hidden",
         py: 8,
-        px: 2,
+        // px: 2,
         mb: 6,
         width: "100%",
         maxWidth: "100%",
@@ -231,6 +231,7 @@ export const HeroSection = () => {
             width: "100%",
             maxWidth: 600,
             height: isMobile ? 400 : 500,
+            display: {xs: "none", md: "flex"},
           }}
         >
           {/* Floating UI components */}

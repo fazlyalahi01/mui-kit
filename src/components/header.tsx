@@ -11,11 +11,10 @@ import {
   IconButton,
   Stack,
   Toolbar,
-  Typography
 } from "@mui/material";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Logo } from "./core/logo";
 import { Iconify } from "./iconify";
 
 // Navigation items
@@ -42,8 +41,6 @@ export const Header = () => {
     router.push(`/${page.toLowerCase()}`);
   };
 
-  
-
   return (
     <AppBar
       position="sticky"
@@ -57,29 +54,14 @@ export const Header = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo - Desktop */}
-          <Typography
-            variant="h6"
-            noWrap
-            component={Link}
-            href={"/"}
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontWeight: 700,
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <Box component="span" sx={{ color: "primary.main", mr: 1 }}>
-              MUI
-            </Box>{" "}
-            KIT
-          </Typography>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Logo />
+          </Box>
 
           {/* Mobile menu icon */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
-              size="large"
+              size="small"
               aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -91,25 +73,14 @@ export const Header = () => {
           </Box>
 
           {/* Logo - Mobile */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontWeight: 700,
-              color: "inherit",
-              textDecoration: "none",
+              display: { xs: "flex", md: "none" },
             }}
           >
-            <Box component="span" sx={{ color: "primary.main", mr: 1 }}>
-              MUI
-            </Box>{" "}
-            KIT
-          </Typography>
+            <Logo />
+          </Box>
 
           {/* Desktop navigation */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -144,17 +115,25 @@ export const Header = () => {
         open={mobileOpen}
         onClose={handleCloseNavMenu}
         ModalProps={{
-          keepMounted: true, 
+          keepMounted: true,
+          BackdropProps: {
+            sx: {
+              backgroundColor: "transparent",
+            },
+          },
         }}
-        color="red"
-        
         variant="temporary"
         sx={{
           display: { xs: "block", md: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: 280, backgroundColor: "background.default" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: 280,
+            bgcolor: "background.paper",
+            backgroundImage: "none",
+          },
         }}
       >
-        <ContentSidebar />
+        <ContentSidebar variant="drawer" />
       </Drawer>
     </AppBar>
   );

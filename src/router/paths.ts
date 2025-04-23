@@ -1,7 +1,7 @@
 import { TContentSidebarMode } from "@/types/content.types";
 
 export const docs = [
-  { label: "Introduction", path: "/docs/introduction" },
+  { label: "Introduction", path: "/docs/intro" },
   { label: "Installation", path: "/docs/installation" },
 ];
 
@@ -18,3 +18,9 @@ export const contentSidebarPathGroups: {
   { key: "BLOCKS", label: "Blocks", path: "/blocks", items: [] },
   // { key: "KITS", label: "Kits", items: [], path: "/kits" },
 ];
+
+export const navItems = [
+  { label: "Docs", path: "/docs/intro" },
+  { label: "Elements", path: "/elements" },
+  { label: "Contact", path: "/contact" },
+]

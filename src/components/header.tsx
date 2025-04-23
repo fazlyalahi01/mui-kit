@@ -16,17 +16,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "./core/logo";
 import { Iconify } from "./iconify";
+import { navItems } from "@/router/paths";
 
 // Navigation items
-const pages = ["Docs", "Kits", "Contact"];
 
 export const Header = () => {
   const router = useRouter();
-  // Mobile drawer state
   const [mobileOpen, setMobileOpen] = useState(false);
   const { mode, toggleColorMode } = useColorMode();
-  console.log(mode, " mode");
-  console.log(toggleColorMode, " toggleColorMode");
 
   const handleOpenNavMenu = () => {
     setMobileOpen(true);
@@ -37,8 +34,7 @@ export const Header = () => {
   };
 
   const handleNavigate = (page: string) => () => {
-    console.log(page, " page");
-    router.push(`/${page.toLowerCase()}`);
+    router.push(page);
   };
 
   return (
@@ -83,13 +79,13 @@ export const Header = () => {
 
           {/* Desktop navigation */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {navItems.map((page) => (
               <Button
-                key={page}
-                onClick={handleNavigate(page)}
+                key={page?.path}
+                onClick={handleNavigate(page?.path)}
                 sx={{ mx: 1, color: "text.primary" }}
               >
-                {page}
+                {page?.label}
               </Button>
             ))}
           </Box>

@@ -10,7 +10,6 @@ export const Logo = () => {
       href="/"
       sx={{
         mr: 2,
-        display: { xs: "flex", md: "none" },
         flexGrow: 1,
         fontWeight: 700,
         color: "inherit",

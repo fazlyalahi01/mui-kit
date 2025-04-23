@@ -58,22 +58,28 @@ Create a Branch: Work on a feature or bug fix:git checkout -b feature/new-button
 
 
 Submit a Pull Request: Push your changes and open a PR to the main branch.
-Sign the CLA: All contributors must sign our Contributor License Agreement to support future monetization or licensing options.
 
-See CONTRIBUTING.md for detailed guidelines, coding standards, and issue reporting.
-Issues
-Report bugs or suggest features via the Issues tab. Use our templates for bug reports or feature requests to ensure clarity.
-License
-This project is licensed under the MIT License.
-Learn More
+# MUI Component Library
 
-MUI Documentation - Learn about MUI core components.
-Next.js Documentation - Explore Next.js features and APIs.
-Next.js Tutorial - Interactive Next.js learning resource.
+## 🧑‍💻 Contribution Rules
 
-Deploy on Vercel
-Deploy your own instance of the library with the Vercel Platform. See the Next.js deployment documentation for details.
-Contact
-For questions or feedback, open an issue or reach out via GitHub Discussions.
+We follow [Conventional Commits](https://www.conventionalcommits.org/) to maintain a clean and meaningful Git history.
+
+### ✅ Use these prefixes for commits:
+| Prefix     | Use When...                                                     |
+|------------|-----------------------------------------------------------------|
+| `feat:`    | **adding a new feature**                                           |
+| `fix:`     | **fixing a bug**                                                   |
+| `refactor:`| **changing code structure** without altering core functionality    |
+| `docs:`    | **editing documentation**                                          |
+| `style:`   | making **code format changes** (e.g., linting, spacing)            |
+| `test:`    | **adding or updating tests**                                       |
+| `chore:`   | making **non-code changes** (e.g., config, deps update)            |
+
+### 🔄 If you're enhancing an existing feature:
+Use `feat:` if your enhancement significantly improves functionality or performance.
+```bash
+feat: enhance dropdown responsiveness
+
 
 Built with ❤️ by fazlyalahi01 and the open source community.

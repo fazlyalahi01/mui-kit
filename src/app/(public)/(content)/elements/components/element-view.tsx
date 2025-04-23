@@ -7,6 +7,7 @@ export const ElementView = () => {
   return (
     <Box>
       <Button onClick={() => router.push("/elements/buttons")}>Button</Button>
+      <Button onClick={() => router.push("/elements/cards")}>Cards</Button>
     </Box>
   );
 };

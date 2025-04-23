@@ -8,7 +8,7 @@ export default function ContentLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ position: "relative" }}>
       <Grid
         container
         spacing={0}
@@ -24,6 +24,10 @@ export default function ContentLayout({
             display: { xs: "none", md: "block" },
             p: 2,
             borderRight: "1px dashed gray",
+            position: "sticky",
+            top: 0,
+            height: "calc(100vh - 124px)",
+            overflowY: "auto",
           }}
         >
           <ContentSidebar />
@@ -33,6 +37,8 @@ export default function ContentLayout({
           size={{ xs: 12, md: 10 }}
           sx={{
             p: 2,
+            overflowY: "auto",
+            height: "calc(100vh - 124px)",
           }}
         >
           {children}

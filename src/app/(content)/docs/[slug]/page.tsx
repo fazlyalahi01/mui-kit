@@ -12,10 +12,5 @@ export default function Page({ params }: { params: { slug: string } }) {
         return <IntroView />;
     }
   };
-  return (
-    <div>
-      <h1>Docs</h1>
-      {getDocView()}
-    </div>
-  );
+  return <>{getDocView()}</>;
 }

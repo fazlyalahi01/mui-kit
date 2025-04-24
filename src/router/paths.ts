@@ -20,7 +20,7 @@ export const contentSidebarPathGroups: {
 ];
 
 export const navItems = [
-  { label: "Docs", path: "/docs/intro" },
-  { label: "Kits", path: "/kits" },
+  { label: "Docs", path: "/docs/installation" },
+  { label: "Kit", path: "/elements" },
   { label: "Contribute ♡", path: "/contribute" },
 ];

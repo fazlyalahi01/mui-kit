@@ -9,7 +9,7 @@ import {
   Divider,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
-import { PageTitle } from "@/components/core/page-header";
+import { PageTitle } from "@/components/core/page-title";
 
 export const IntroView = () => {
   return (

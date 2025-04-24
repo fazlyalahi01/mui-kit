@@ -34,7 +34,7 @@ export const CodePreviewCopyWrapper: React.FC<CodePreviewWrapperProps> = ({
   };
 
   return (
-    <Box sx={{ border: "1px solid #ddd", borderRadius: 2, p: 2 }}>
+    <Box sx={{ border: "1px dotted gray", borderRadius: 2, px: 2, pb: 4 }}>
       <Tabs
         value={tab}
         onChange={(_, newValue) => setTab(newValue)}

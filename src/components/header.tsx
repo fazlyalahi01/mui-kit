@@ -11,12 +11,15 @@ import {
   IconButton,
   Stack,
   Toolbar,
+  Typography,
+  useTheme,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "./core/logo";
 import { Iconify } from "./iconify";
 import { navItems } from "@/router/paths";
+import Link from "next/link";
 
 // Navigation items
 
@@ -24,6 +27,7 @@ export const Header = () => {
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const { mode, toggleColorMode } = useColorMode();
+  const theme = useTheme();
 
   const handleOpenNavMenu = () => {
     setMobileOpen(true);
@@ -78,12 +82,18 @@ export const Header = () => {
           </Box>
 
           {/* Desktop navigation */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, marginLeft: 6 }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              marginLeft: 6,
+            }}
+          >
             {navItems.map((page) => (
               <Button
                 key={page?.path}
                 onClick={handleNavigate(page?.path)}
-                sx={{ mx: .5, color: "text.primary" }}
+                sx={{ mx: 0.5, color: "text.primary" }}
               >
                 {page?.label}
               </Button>
@@ -92,7 +102,16 @@ export const Header = () => {
 
           {/* Desktop action buttons */}
           <Stack gap={2} direction={"row"}>
-            <Iconify icon="mdi:github" />
+            <Typography
+              component={Link}
+              href={"https://github.com/fazlyalahi01/mui-kit"}
+              target="_blank"
+            >
+              <Iconify
+                icon="mdi:github"
+                style={{ color: theme.palette.text.secondary }}
+              />
+            </Typography>
             <span onClick={toggleColorMode}>
               <Iconify
                 icon={

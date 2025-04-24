@@ -78,12 +78,12 @@ export const Header = () => {
           </Box>
 
           {/* Desktop navigation */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, marginLeft: 6 }}>
             {navItems.map((page) => (
               <Button
                 key={page?.path}
                 onClick={handleNavigate(page?.path)}
-                sx={{ mx: 1, color: "text.primary" }}
+                sx={{ mx: .5, color: "text.primary" }}
               >
                 {page?.label}
               </Button>

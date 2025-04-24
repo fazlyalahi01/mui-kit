@@ -1,6 +1,6 @@
 "use client";
 import { Logo } from "@/components/core/logo";
-import { contentSidebarPathGroups } from "@/router/paths"; // Assume blocks is separate
+import { contentSidebarPathGroups } from "@/router/paths";
 import { TContentSidebarMode } from "@/types/content.types";
 import {
   Box,
@@ -9,6 +9,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,7 +22,7 @@ type ContentSidebarProps = {
 export const ContentSidebar = ({
   variant = "sidebar",
 }: ContentSidebarProps) => {
-  const [open, setOpen] = React.useState<TContentSidebarMode>("DOCS");
+  const [open, setOpen] = React.useState("DOCS");
   const pathname = usePathname();
 
   const handleClick = (mode: TContentSidebarMode) => {
@@ -34,6 +35,9 @@ export const ContentSidebar = ({
     <Box
       sx={{
         width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
         p: variant === "drawer" ? 2 : 0,
         pt: variant === "drawer" ? 4 : 0,
       }}
@@ -44,7 +48,7 @@ export const ContentSidebar = ({
         </Box>
       )}
 
-      <List>
+      <List sx={{ flexGrow: 1 }}>
         {contentSidebarPathGroups.map(({ key, label, items, path }) => {
           const hasChildren = items.length > 0;
 
@@ -64,32 +68,30 @@ export const ContentSidebar = ({
                     }}
                   >
                     <List>
-                      {items.map((item) => {
-                        return (
-                          <ListItem
-                            key={item.path}
-                            disablePadding
-                            sx={{ pl: 1 }}
-                          >
-                            <Link href={item.path} legacyBehavior passHref>
-                              <ListItemButton>
-                                <ListItemText
-                                  primary={item.label}
-                                  slotProps={{
-                                    primary: {
-                                      sx: {
-                                        color: isActive(item.path)
-                                          ? "primary.main"
-                                          : "text.primary",
-                                      },
+                      {items.map((item) => (
+                        <ListItem
+                          key={item.path}
+                          disablePadding
+                          sx={{ pl: 1 }}
+                        >
+                          <Link href={item.path} legacyBehavior passHref>
+                            <ListItemButton>
+                              <ListItemText
+                                primary={item.label}
+                                slotProps={{
+                                  primary: {
+                                    sx: {
+                                      color: isActive(item.path)
+                                        ? "primary.main"
+                                        : "text.primary",
                                     },
-                                  }}
-                                />
-                              </ListItemButton>
-                            </Link>
-                          </ListItem>
-                        );
-                      })}
+                                  },
+                                }}
+                              />
+                            </ListItemButton>
+                          </Link>
+                        </ListItem>
+                      ))}
                     </List>
                   </Collapse>
                 </>
@@ -117,6 +119,34 @@ export const ContentSidebar = ({
           );
         })}
       </List>
+
+      <Box
+        sx={{
+          mt: "auto",
+          p: 2,
+          bgcolor: "background.default",
+          border: "1px dotted gray",
+          borderColor: "divider",
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          Want to contribute?
+        </Typography>
+        <Link href="/contribute" passHref>
+          <Typography
+            variant="body2"
+            component="a"
+            sx={{
+              color: "primary.main",
+              textDecoration: "none",
+              "&:hover": { textDecoration: "underline" },
+            }}
+          >
+            Join our community!
+          </Typography>
+        </Link>
+      </Box>
     </Box>
   );
 };

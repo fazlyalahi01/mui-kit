@@ -1,5 +1,4 @@
 "use client";
-import { Icon } from "@iconify/react";
 import { Box, Container, Link, Typography } from "@mui/material";
 
 export const Footer = () => {
@@ -23,9 +22,10 @@ export const Footer = () => {
             justifyContent: "flex-start",
           }}
         >
-          Built by{" "}
+          Built with ♥ by{" "}
           <Link
-            href="#"
+            href="https://www.linkedin.com/in/fazlyalahiru/"
+            target="_blank"
             sx={{
               color: "primary.main",
               textDecoration: "none",
@@ -35,26 +35,8 @@ export const Footer = () => {
               },
             }}
           >
-            MUI KIT
+            Fazly
           </Link>
-          . The source code is available on{" "}
-          <Link
-            href="#"
-            sx={{
-              color: "primary.main",
-              textDecoration: "underline",
-              ml: 0.5,
-              display: "inline-flex",
-              alignItems: "center",
-              "&:hover": {
-                color: "primary.dark",
-              },
-            }}
-          >
-            GitHub
-            <Icon icon="mdi:github" style={{ marginLeft: 4, fontSize: 16 }} />
-          </Link>
-          .
         </Typography>
       </Container>
     </Box>

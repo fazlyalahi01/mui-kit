@@ -1,1 +1,7 @@
-export type TContentSidebarMode = "DOCS" | "ELEMENTS" | "BLOCKS" | "KITS" | "";
+export type TContentSidebarMode =
+  | "DOCS"
+  | "ELEMENTS"
+  | "BLOCKS"
+  | "TEMPLATES"
+  | "DASHBOARD"
+  | "FORM";

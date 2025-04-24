@@ -1,5 +1,5 @@
 "use client";
-import { ContentSidebar } from "@/app/(public)/(content)/components/content-sidebar";
+import { ContentSidebar } from "@/app/(content)/components/content-sidebar";
 import { useColorMode } from "@/providers/app-provider";
 import { Icon } from "@iconify/react";
 import {

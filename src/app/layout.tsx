@@ -32,7 +32,7 @@ export default function RootLayout({
         <AppProvider>
           <Header />
 
-          <Box sx={{ width: "100%", px: 0, overflow: "auto" }}>{children}</Box>
+          <Box sx={{ width: "100%", px: 0, overflow: "auto", minHeight: "calc(100vh - 124px)" }}>{children}</Box>
 
           <Footer />
         </AppProvider>

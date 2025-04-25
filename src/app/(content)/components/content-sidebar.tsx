@@ -1,6 +1,6 @@
 "use client";
 import { Logo } from "@/components/core/logo";
-import { contentSidebarPathGroups } from "@/router/paths";
+import { contentSidebarPathGroups } from "@/router/router";
 import { TContentSidebarMode } from "@/types/content.types";
 import {
   Box,

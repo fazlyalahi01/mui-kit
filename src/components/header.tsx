@@ -18,8 +18,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "./core/logo";
 import { Iconify } from "./iconify";
-import { navItems } from "@/router/paths";
 import Link from "next/link";
+import { navItems } from "@/router/router";
 
 // Navigation items
 

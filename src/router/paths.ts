@@ -1,26 +1,26 @@
-import { TContentSidebarMode } from "@/types/content.types";
-
-export const docs = [
-  { label: "Introduction", path: "/docs/intro" },
-  { label: "Installation", path: "/docs/installation" },
-];
-
-export const contentSidebarPathGroups: {
-  key: TContentSidebarMode;
-  label: string;
-  items: { path: string; label: string }[];
-  path?: string;
-}[] = [
-  { key: "DOCS", label: "Docs", items: docs },
-  { key: "ELEMENTS", label: "Elements", path: "/elements", items: [] },
-  { key: "BLOCKS", label: "Blocks", path: "/blocks", items: [] },
-  { key: "TEMPLATES", label: "Templates", path: "/templates", items: [] },
-  { key: "DASHBOARD", label: "Dashboard", path: "/dashboard", items: [] },
-  { key: "FORM", label: "Form", path: "/form", items: [] },
-];
-
-export const navItems = [
-  { label: "Docs", path: "/docs/installation" },
-  { label: "Kit", path: "/elements" },
-  { label: "Contribute ♡", path: "/contribute" },
-];
+export const PATHS = {
+  ELEMENTS: {
+    ROOT: "/elements",
+    ACCORDION: "/elements/accordion",
+    BUTTON: "/elements/button",
+    DIALOG: "/elements/dialog",
+  },
+  DOCS: {
+    ROOT: "/docs",
+    INTRO: "/docs/intro",
+    INSTALL: "/docs/installation",
+  },
+  BLOCKS: {
+    ROOT: "/blocks",
+  },
+  TEMPLATES: {
+    ROOT: "/templates",
+  },
+  DASHBOARD: {
+    ROOT: "/dashboard",
+  },
+  FORM: {
+    ROOT: "/form",
+  },
+  CONTRIBUTE: "/contribute",
+};

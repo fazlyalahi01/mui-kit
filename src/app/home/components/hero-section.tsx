@@ -10,6 +10,7 @@ import {
   useTheme,
 } from "@mui/material";
 import PathSVG from "./PathSVG";
+import Link from "next/link";
 
 export const HeroSection = () => {
   const theme = useTheme();
@@ -90,7 +91,7 @@ export const HeroSection = () => {
         /> */}
 
         {/* Animated Lines */}
-        <Box sx={{ position: "absolute", inset: 0, opacity: 0.5,}}>
+        <Box sx={{ position: "absolute", inset: 0, opacity: 0.5 }}>
           {/* Horizontal Lines */}
           <Box
             sx={{
@@ -173,7 +174,7 @@ export const HeroSection = () => {
           zIndex: 1,
           maxWidth: "xl",
           mx: "auto",
-          px:4, 
+          px: 4,
         }}
       >
         {/* Left text box */}
@@ -218,9 +219,11 @@ export const HeroSection = () => {
           </Typography>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Button variant="contained" size="large">
-              Get Started
-            </Button>
+            <Link href={"/docs/intro"}>
+              <Button variant="contained" size="large">
+                Get Started
+              </Button>
+            </Link>
           </Stack>
         </Box>
 
@@ -231,7 +234,7 @@ export const HeroSection = () => {
             width: "100%",
             maxWidth: 600,
             height: isMobile ? 400 : 500,
-            display: {xs: "none", md: "flex"},
+            display: { xs: "none", md: "flex" },
           }}
         >
           {/* Floating UI components */}

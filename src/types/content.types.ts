@@ -4,4 +4,5 @@ export type TContentSidebarMode =
   | "BLOCKS"
   | "TEMPLATES"
   | "DASHBOARD"
-  | "FORM";
+  | "FORM"
+  | "ELEMENTS_COMPONENTS";

@@ -1,22 +1,17 @@
 import { Box } from "@mui/material";
+import { AccordionView } from "../components/accordion-view";
 import { ButtonView } from "../components/button-view";
-import { CardView } from "../components/card-view";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const elementView = () => {
     switch (params.slug) {
-      case "buttons":
+      case "accordion":
+        return <AccordionView />;
+      case "button":
         return <ButtonView />;
-      case "cards":
-        return <CardView />;
       default:
         return <Box>Buttons</Box>;
     }
   };
-  return (
-    <Box>
-      <h1>Docs</h1>
-      {elementView()}
-    </Box>
-  );
+  return <Box>{elementView()}</Box>;
 }

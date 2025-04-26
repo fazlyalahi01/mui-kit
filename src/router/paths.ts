@@ -70,7 +70,7 @@ export const PATHS = {
     POPUP: "/blocks/popup",
     PRICING_MENU: "/blocks/pricing-menu",
     PRICING_TABLE: "/blocks/pricing-table",
-    SERVICES: "/blocks/pricing-table",
+    SERVICES: "/blocks/services",
     SINGLE_PROFILE: "/blocks/single-profile",
     SINGLE_QUOTE_PULL: "/blocks/single-quote-pull",
     SUB_HERO: "/blocks/sub-hero",

@@ -1,4 +1,5 @@
 "use client";
+
 import { Logo } from "@/components/core/logo";
 import { contentSidebarPathGroups } from "@/router/router";
 import { TContentSidebarMode } from "@/types/content.types";
@@ -10,10 +11,12 @@ import {
   ListItemButton,
   ListItemText,
   Typography,
+  TextField,
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { ChevronRight as ChevronRightIcon } from "@mui/icons-material";
 
 type ContentSidebarProps = {
   variant?: "sidebar" | "drawer";
@@ -22,8 +25,17 @@ type ContentSidebarProps = {
 export const ContentSidebar = ({
   variant = "sidebar",
 }: ContentSidebarProps) => {
-  const [open, setOpen] = React.useState("DOCS");
+  const [open, setOpen] = useState<TContentSidebarMode | "">("DOCS");
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState<
+    { key: string; label: string; path: string }[]
+  >([]);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setSearchValue("");
+    setSearchResults([]);
+  }, [pathname]);
 
   const handleClick = (mode: TContentSidebarMode) => {
     setOpen((prev) => (prev === mode ? "" : mode));
@@ -31,93 +43,266 @@ export const ContentSidebar = ({
 
   const isActive = (path: string) => pathname === path;
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchValue(value);
+
+    if (value) {
+      const results = contentSidebarPathGroups
+        .flatMap((group) =>
+          group.items.length > 0
+            ? group.items.map((item) => ({
+                key: item.path,
+                label: item.label,
+                path: item.path,
+              }))
+            : [{ key: group.key, label: group.label, path: group.path || "" }]
+        )
+        .filter((item) =>
+          item.label.toLowerCase().includes(value.toLowerCase())
+        );
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
   return (
     <Box
       sx={{
         width: "100%",
+        maxWidth: { xs: "100%", xl: "16rem" },
         height: "100%",
+        bgcolor: "background.paper",
+        borderRight: { xl: 1 },
+        borderColor: { xl: "divider" },
         display: "flex",
         flexDirection: "column",
-        p: variant === "drawer" ? 2 : 0,
-        pt: variant === "drawer" ? 4 : 0,
+        p: variant === "drawer" ? 1 : 1,
+        pt: variant === "drawer" ? 4 : 3,
       }}
     >
       {variant === "drawer" && (
-        <Box sx={{ ml: 2 }}>
+        <Box sx={{ mb: 2 }}>
           <Logo />
         </Box>
       )}
 
-      <List sx={{ flexGrow: 1 }}>
-        {contentSidebarPathGroups.map(({ key, label, items, path }) => {
-          const hasChildren = items.length > 0;
+      {/* Search */}
+      <TextField
+        placeholder="Search..."
+        id="outlined-size-small"
+        size="small"
+        sx={{ width: "100%" }}
+        onChange={handleSearch}
+        value={searchValue}
+      />
 
-          return (
-            <React.Fragment key={key}>
-              {hasChildren ? (
-                <>
-                  <ListItemButton onClick={() => handleClick(key)}>
-                    <ListItemText primary={label} />
-                  </ListItemButton>
-                  <Collapse
-                    in={open === key}
-                    timeout="auto"
-                    unmountOnExit
-                    sx={{
-                      ml: 1.5,
-                    }}
-                  >
-                    <List>
-                      {items.map((item) => (
-                        <ListItem
-                          key={item.path}
-                          disablePadding
-                          sx={{ pl: 1 }}
-                        >
-                          <Link href={item.path} legacyBehavior passHref>
-                            <ListItemButton>
-                              <ListItemText
-                                primary={item.label}
-                                slotProps={{
-                                  primary: {
-                                    sx: {
-                                      color: isActive(item.path)
-                                        ? "primary.main"
-                                        : "text.primary",
-                                    },
-                                  },
-                                }}
-                              />
-                            </ListItemButton>
-                          </Link>
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Collapse>
-                </>
-              ) : (
-                <ListItem key={path || key} disablePadding>
-                  <Link href={path || ""} legacyBehavior passHref>
-                    <ListItemButton>
-                      <ListItemText
-                        primary={label}
-                        slotProps={{
-                          primary: {
-                            sx: {
-                              color: isActive(path || "")
-                                ? "primary.main"
-                                : "text.primary",
-                            },
+      <List sx={{ flexGrow: 1, mt: 2 }}>
+        {searchValue ? (
+          <Box>
+            <Typography
+              variant="subtitle2"
+              sx={{ px: 2, mb: 2, color: "text.secondary" }}
+            >
+              Results
+            </Typography>
+            {searchResults.length > 0 ? (
+              <List>
+                {searchResults.map((item) => (
+                  <ListItem key={item.key} disablePadding>
+                    <Link href={item.path} legacyBehavior passHref>
+                      <ListItemButton
+                        sx={{
+                          borderRadius: 1,
+                          position: "relative",
+                          pl: 4,
+                          "&:hover:before": {
+                            content: '""',
+                            position: "absolute",
+                            left: 0,
+                            top: "25%",
+                            height: "50%",
+                            width: "4px",
+                            bgcolor: "primary.main",
+                            borderRadius: "0 2px 2px 0",
                           },
+                          "&:before": {
+                            content: '""',
+                            position: "absolute",
+                            left: 0,
+                            top: "25%",
+                            height: "50%",
+                            width: "4px",
+                            bgcolor: isActive(item.path)
+                              ? "primary.main"
+                              : "transparent",
+                            borderRadius: "0 2px 2px 0",
+                          },
+                        }}
+                      >
+                        <ListItemText
+                          primary={item.label}
+                          primaryTypographyProps={{
+                            variant: "body2",
+                            color: "text.primary",
+                          }}
+                        />
+                      </ListItemButton>
+                    </Link>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <Typography
+                variant="body2"
+                sx={{ px: 2, color: "text.secondary" }}
+              >
+                No components found
+              </Typography>
+            )}
+          </Box>
+        ) : (
+          contentSidebarPathGroups.map(({ key, label, items, path }) => {
+            const hasChildren = items.length > 0;
+
+            return (
+              <React.Fragment key={key}>
+                {hasChildren ? (
+                  <>
+                    <ListItemButton
+                      onClick={() => handleClick(key)}
+                      sx={{ borderRadius: 1, mb: 0.5 }}
+                    >
+                      <Typography
+                        variant="subtitle2"
+                        sx={{
+                          px: 0,
+                          py: 1,
+                          color: "text.secondary",
+                          textTransform: "uppercase",
+                          fontWeight: "medium",
+                        }}
+                      >
+                        {label}
+                      </Typography>
+                      <ChevronRightIcon
+                        sx={{
+                          transform:
+                            open === key ? "rotate(90deg)" : "rotate(0deg)",
+                          transition: "transform 200ms",
+                          color: "text.secondary",
                         }}
                       />
                     </ListItemButton>
-                  </Link>
-                </ListItem>
-              )}
-            </React.Fragment>
-          );
-        })}
+                    <Collapse in={open === key} timeout="auto" unmountOnExit>
+                      <List
+                        sx={{
+                          position: "relative",
+                          "&:before": {
+                            content: '""',
+                            position: "absolute",
+                            left: "17px",
+                            top: 0,
+                            height: "100%",
+                            width: "1px",
+                            bgcolor: "divider",
+                          },
+                        }}
+                      >
+                        {items.map((item) => (
+                          <ListItem key={item.path} disablePadding>
+                            <Link href={item.path} legacyBehavior passHref>
+                              <ListItemButton
+                                sx={{
+                                  borderRadius: 1,
+                                  position: "relative",
+                                  ml: 2,
+                                  "&:hover:before": {
+                                    content: '""',
+                                    position: "absolute",
+                                    left: 0,
+                                    top: "25%",
+                                    height: "50%",
+                                    width: "4px",
+                                    bgcolor: "primary.main",
+                                    borderRadius: "0 2px 2px 0",
+                                  },
+                                  "&:before": {
+                                    content: '""',
+                                    position: "absolute",
+                                    left: 0,
+                                    top: "25%",
+                                    height: "50%",
+                                    width: "4px",
+                                    bgcolor: isActive(item.path)
+                                      ? "primary.main"
+                                      : "transparent",
+                                    borderRadius: "0 2px 2px 0",
+                                  },
+                                }}
+                              >
+                                <ListItemText
+                                  primary={item.label}
+                                  primaryTypographyProps={{
+                                    variant: "body2",
+                                    color: "text.primary",
+                                  }}
+                                />
+                              </ListItemButton>
+                            </Link>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Collapse>
+                  </>
+                ) : (
+                  <ListItem key={path || key} disablePadding>
+                    <Link href={path || ""} legacyBehavior passHref>
+                      <ListItemButton
+                        sx={{
+                          borderRadius: 1,
+                          position: "relative",
+                          pl: 2,
+                          "&:hover:before": {
+                            content: '""',
+                            position: "absolute",
+                            left: 0,
+                            top: "25%",
+                            height: "50%",
+                            width: "4px",
+                            bgcolor: "primary.main",
+                            borderRadius: "0 2px 2px 0",
+                          },
+                          "&:before": {
+                            content: '""',
+                            position: "absolute",
+                            left: 0,
+                            top: "25%",
+                            height: "50%",
+                            width: "4px",
+                            bgcolor: isActive(path || "")
+                              ? "primary.main"
+                              : "transparent",
+                            borderRadius: "0 2px 2px 0",
+                          },
+                        }}
+                      >
+                        <ListItemText
+                          primary={label}
+                          primaryTypographyProps={{
+                            variant: "body2",
+                            color: "text.primary",
+                          }}
+                        />
+                      </ListItemButton>
+                    </Link>
+                  </ListItem>
+                )}
+              </React.Fragment>
+            );
+          })
+        )}
       </List>
 
       <Box
@@ -125,7 +310,7 @@ export const ContentSidebar = ({
           mt: "auto",
           p: 2,
           bgcolor: "background.default",
-          border: "1px dotted gray",
+          borderTop: 1,
           borderColor: "divider",
           textAlign: "center",
         }}

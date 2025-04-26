@@ -77,8 +77,8 @@ export const ContentSidebar = ({
         borderColor: { xl: "divider" },
         display: "flex",
         flexDirection: "column",
-        p: variant === "drawer" ? 1 : 1,
-        pt: variant === "drawer" ? 4 : 3,
+        p: variant === "drawer" ? 3 : 1,
+        pt: variant === "drawer" ? 3 : 3,
         scrollbarWidth: "none",
         "&::-webkit-scrollbar": {
           display: "none",
@@ -126,7 +126,7 @@ export const ContentSidebar = ({
                           "&:hover .MuiTypography-root": {
                             color: "primary.main",
                           },
-                          pl: 2,
+                          // pl: 2,
                           "&:hover:before": {
                             content: '""',
                             position: "absolute",
@@ -221,7 +221,7 @@ export const ContentSidebar = ({
                           "&:before": {
                             content: '""',
                             position: "absolute",
-                            left: "17px",
+                            left: "5px",
                             top: 0,
                             height: "100%",
                             width: "1px",
@@ -237,7 +237,7 @@ export const ContentSidebar = ({
                                 sx={{
                                   borderRadius: 1,
                                   position: "relative",
-                                  ml: 2,
+                                  ml: 1,
                                   "&:hover": {
                                     bgcolor: "transparent",
                                   },
@@ -273,6 +273,7 @@ export const ContentSidebar = ({
                                   primaryTypographyProps={{
                                     variant: "body2",
                                     color: "text.primary",
+                                    fontSize: {xs: 15, sm: 16},
                                   }}
                                 />
                               </ListItemButton>
@@ -292,6 +293,8 @@ export const ContentSidebar = ({
                           position: "relative",
                           pl: 2,
                           px: 0,
+                          color: "text.secondary",
+                          textTransform: "uppercase",
                           "&:hover": {
                             bgcolor: "transparent",
                           },
@@ -301,10 +304,14 @@ export const ContentSidebar = ({
                         }}
                       >
                         <ListItemText
+                          sx={{ fontWeight: "bold" }}
                           primary={label}
                           primaryTypographyProps={{
                             variant: "body2",
-                            color: "text.primary",
+                            color: isActive(path || "")
+                              ? "primary.main"
+                              : "text.secondary",
+                            fontWeight: 600,
                           }}
                         />
                       </ListItemButton>

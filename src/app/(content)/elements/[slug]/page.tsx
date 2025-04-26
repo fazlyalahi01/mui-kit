@@ -2,9 +2,14 @@ import { Box } from "@mui/material";
 import { AccordionView } from "../components/accordion-view";
 import { ButtonView } from "../components/button-view";
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const elementView = () => {
-    switch (params.slug) {
+    switch (slug) {
       case "accordion":
         return <AccordionView />;
       case "button":

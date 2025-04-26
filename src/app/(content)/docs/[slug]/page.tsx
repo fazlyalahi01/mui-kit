@@ -1,9 +1,14 @@
 import { InstallationView } from "../components/installation-view";
 import { IntroView } from "../components/introduction-view";
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const getDocView = () => {
-    switch (params.slug) {
+    switch (slug) {
       case "intro":
         return <IntroView />;
       case "installation":

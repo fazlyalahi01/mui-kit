@@ -119,7 +119,13 @@ export const ContentSidebar = ({
                         sx={{
                           borderRadius: 1,
                           position: "relative",
-                          pl: 4,
+                          "&:hover": {
+                            bgcolor: "transparent",
+                          },
+                          "&:hover .MuiTypography-root": {
+                            color: "primary.main",
+                          },
+                          pl: 2,
                           "&:hover:before": {
                             content: '""',
                             position: "absolute",
@@ -172,7 +178,19 @@ export const ContentSidebar = ({
                   <>
                     <ListItemButton
                       onClick={() => handleClick(key)}
-                      sx={{ borderRadius: 1, mb: 0.5 }}
+                      // sx={{ borderRadius: 1, mb: 0.5 }}
+                      sx={{
+                        borderRadius: 1,
+                        mb: 0.5,
+                        px: 0,
+                        py: 0,
+                        "&:hover": {
+                          bgcolor: "transparent",
+                        },
+                        "&:hover .MuiTypography-root": {
+                          color: "primary.main",
+                        },
+                      }}
                     >
                       <Typography
                         variant="subtitle2"
@@ -218,6 +236,12 @@ export const ContentSidebar = ({
                                   borderRadius: 1,
                                   position: "relative",
                                   ml: 2,
+                                  "&:hover": {
+                                    bgcolor: "transparent",
+                                  },
+                                  "&:hover .MuiTypography-root": {
+                                    color: "primary.main",
+                                  },
                                   "&:hover:before": {
                                     content: '""',
                                     position: "absolute",
@@ -321,7 +345,7 @@ export const ContentSidebar = ({
         <Link href="/contribute" passHref>
           <Typography
             variant="body2"
-            component="a"
+            // component="a"
             sx={{
               color: "primary.main",
               textDecoration: "none",

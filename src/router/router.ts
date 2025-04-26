@@ -7,7 +7,7 @@ export const docs = [
 ];
 
 export const elements = [
-  { label: "Root", path: PATHS.ELEMENTS.ROOT },
+  { label: "Overview", path: PATHS.ELEMENTS.OVERVIEW },
   { label: "Accordion", path: PATHS.ELEMENTS.ACCORDION },
   { label: "Alert", path: PATHS.ELEMENTS.ALERT },
   { label: "App Bar", path: PATHS.ELEMENTS.APP_BAR },
@@ -67,7 +67,7 @@ export const contentSidebarPathGroups: {
     key: "ELEMENTS_COMPONENTS",
     label: "Elements",
     items: elements,
-    path: PATHS.ELEMENTS.ROOT,
+    path: PATHS.ELEMENTS.OVERVIEW,
   },
   { key: "BLOCKS", label: "Blocks", path: PATHS.BLOCKS.ROOT, items: [] },
   {
@@ -87,6 +87,6 @@ export const contentSidebarPathGroups: {
 
 export const navItems = [
   { label: "Docs", path: PATHS.DOCS.INSTALL },
-  { label: "Kit", path: PATHS.ELEMENTS.ROOT },
+  { label: "Kit", path: PATHS.ELEMENTS.OVERVIEW },
   { label: "Contribute ♡", path: PATHS.CONTRIBUTE },
 ];

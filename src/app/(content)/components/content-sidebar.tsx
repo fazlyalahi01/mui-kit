@@ -72,14 +72,17 @@ export const ContentSidebar = ({
       sx={{
         width: "100%",
         maxWidth: { xs: "100%", xl: "16rem" },
+        overflow: "auto",
         height: "100%",
-        bgcolor: "background.paper",
-        borderRight: { xl: 1 },
         borderColor: { xl: "divider" },
         display: "flex",
         flexDirection: "column",
         p: variant === "drawer" ? 1 : 1,
         pt: variant === "drawer" ? 4 : 3,
+        scrollbarWidth: "none",
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
       }}
     >
       {variant === "drawer" && (
@@ -103,7 +106,7 @@ export const ContentSidebar = ({
           <Box>
             <Typography
               variant="subtitle2"
-              sx={{ px: 2, mb: 2, color: "text.secondary" }}
+              sx={{ mb: 2, color: "text.secondary" }}
             >
               Results
             </Typography>
@@ -116,7 +119,13 @@ export const ContentSidebar = ({
                         sx={{
                           borderRadius: 1,
                           position: "relative",
-                          pl: 4,
+                          "&:hover": {
+                            bgcolor: "transparent",
+                          },
+                          "&:hover .MuiTypography-root": {
+                            color: "primary.main",
+                          },
+                          pl: 2,
                           "&:hover:before": {
                             content: '""',
                             position: "absolute",
@@ -154,10 +163,7 @@ export const ContentSidebar = ({
                 ))}
               </List>
             ) : (
-              <Typography
-                variant="body2"
-                sx={{ px: 2, color: "text.secondary" }}
-              >
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
                 No components found
               </Typography>
             )}
@@ -172,7 +178,19 @@ export const ContentSidebar = ({
                   <>
                     <ListItemButton
                       onClick={() => handleClick(key)}
-                      sx={{ borderRadius: 1, mb: 0.5 }}
+                      // sx={{ borderRadius: 1, mb: 0.5 }}
+                      sx={{
+                        borderRadius: 1,
+                        mb: 0.5,
+                        px: 0,
+                        py: 0,
+                        "&:hover": {
+                          bgcolor: "transparent",
+                        },
+                        "&:hover .MuiTypography-root": {
+                          color: "primary.main",
+                        },
+                      }}
                     >
                       <Typography
                         variant="subtitle2"
@@ -218,6 +236,12 @@ export const ContentSidebar = ({
                                   borderRadius: 1,
                                   position: "relative",
                                   ml: 2,
+                                  "&:hover": {
+                                    bgcolor: "transparent",
+                                  },
+                                  "&:hover .MuiTypography-root": {
+                                    color: "primary.main",
+                                  },
                                   "&:hover:before": {
                                     content: '""',
                                     position: "absolute",
@@ -321,7 +345,7 @@ export const ContentSidebar = ({
         <Link href="/contribute" passHref>
           <Typography
             variant="body2"
-            component="a"
+            // component="a"
             sx={{
               color: "primary.main",
               textDecoration: "none",

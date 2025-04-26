@@ -1,6 +1,6 @@
 export const PATHS = {
   ELEMENTS: {
-    ROOT: "/elements",
+    OVERVIEW: "/elements",
     ACCORDION: "/elements/accordion",
     ALERT: "/elements/alert",
     APP_BAR: "/elements/app-bar",

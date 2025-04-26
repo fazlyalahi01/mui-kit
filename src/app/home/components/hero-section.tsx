@@ -254,7 +254,7 @@ export const HeroSection = () => {
             }}
           >
             <Typography variant="h6" gutterBottom>
-              Dashboard
+              Templates
             </Typography>
             <Box
               sx={{
@@ -294,13 +294,13 @@ export const HeroSection = () => {
               height: "35%",
               borderRadius: 2,
               p: 2,
-              zIndex: 2,
+              zIndex: 3,
               transform: "rotate(3deg)",
               bgcolor: "background.paper",
             }}
           >
             <Typography variant="subtitle2" gutterBottom>
-              User Profile
+              Components
             </Typography>
             <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
               <Box
@@ -350,14 +350,14 @@ export const HeroSection = () => {
               height: "30%",
               borderRadius: 2,
               p: 2,
-              zIndex: 1,
+              zIndex: 4,
               transform: "rotate(2deg)",
               bgcolor: theme.palette.primary.main,
               color: "white",
             }}
           >
             <Typography variant="subtitle2" gutterBottom>
-              Analytics
+              Dashboard
             </Typography>
             <Box
               sx={{

@@ -116,6 +116,7 @@ export const ContentSidebar = ({
                   <ListItem key={item.key} disablePadding>
                     <Link href={item.path} legacyBehavior passHref>
                       <ListItemButton
+                        disableRipple
                         sx={{
                           borderRadius: 1,
                           position: "relative",
@@ -178,7 +179,7 @@ export const ContentSidebar = ({
                   <>
                     <ListItemButton
                       onClick={() => handleClick(key)}
-                      // sx={{ borderRadius: 1, mb: 0.5 }}
+                      disableRipple
                       sx={{
                         borderRadius: 1,
                         mb: 0.5,
@@ -232,6 +233,7 @@ export const ContentSidebar = ({
                           <ListItem key={item.path} disablePadding>
                             <Link href={item.path} legacyBehavior passHref>
                               <ListItemButton
+                                disableRipple
                                 sx={{
                                   borderRadius: 1,
                                   position: "relative",
@@ -284,31 +286,17 @@ export const ContentSidebar = ({
                   <ListItem key={path || key} disablePadding>
                     <Link href={path || ""} legacyBehavior passHref>
                       <ListItemButton
+                        disableRipple
                         sx={{
                           borderRadius: 1,
                           position: "relative",
                           pl: 2,
-                          "&:hover:before": {
-                            content: '""',
-                            position: "absolute",
-                            left: 0,
-                            top: "25%",
-                            height: "50%",
-                            width: "4px",
-                            bgcolor: "primary.main",
-                            borderRadius: "0 2px 2px 0",
+                          px: 0,
+                          "&:hover": {
+                            bgcolor: "transparent",
                           },
-                          "&:before": {
-                            content: '""',
-                            position: "absolute",
-                            left: 0,
-                            top: "25%",
-                            height: "50%",
-                            width: "4px",
-                            bgcolor: isActive(path || "")
-                              ? "primary.main"
-                              : "transparent",
-                            borderRadius: "0 2px 2px 0",
+                          "&:hover .MuiTypography-root": {
+                            color: "primary.main",
                           },
                         }}
                       >
@@ -345,7 +333,6 @@ export const ContentSidebar = ({
         <Link href="/contribute" passHref>
           <Typography
             variant="body2"
-            // component="a"
             sx={{
               color: "primary.main",
               textDecoration: "none",

@@ -48,7 +48,7 @@ export const CodePreviewCopyWrapper: React.FC<CodePreviewWrapperProps> = ({
       {tab === "preview" ? (
         <Box>{preview}</Box>
       ) : (
-        <Box sx={{ position: "relative" }}>
+        <Box sx={{ position: "relative", height: "400px", overflow: "auto", scrollbarWidth: "none"}}>
           <Button
             variant="contained"
             size="small"

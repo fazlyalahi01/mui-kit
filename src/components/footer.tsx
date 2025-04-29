@@ -1,7 +1,8 @@
 "use client";
-import { Box, Container, Link, Typography } from "@mui/material";
+import { Box, Container, Link, Typography, useTheme } from "@mui/material";
 
 export const Footer = () => {
+  const theme  = useTheme();
   return (
     <Box
       component="footer"
@@ -9,8 +10,8 @@ export const Footer = () => {
         py: 2,
         backgroundColor: "background.paper",
         color: "text.secondary",
-        mt: "auto",
-        borderTop: "1px dashed gray",
+        // mt: "auto",
+        borderTop: `1px solid ${theme.palette.divider}`,
       }}
     >
       <Container maxWidth="xl">

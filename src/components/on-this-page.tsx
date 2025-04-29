@@ -29,6 +29,8 @@ export const OnThisPage = ({ sections }: IProps) => {
         top: "1rem",
         display: { xs: "none", md: "block" },
         px: 4,
+        // border: "1px solid red",
+        width: "100%",
       }}
     >
       <Typography variant="h6">On this page</Typography>

@@ -20,12 +20,12 @@ export const darkPalette: PaletteOptions = {
   primary: { main: "#0077b6" },
   secondary: { main: "#3e9" },
   background: {
-    default: "#121212",
-    paper: "#1e1e1e",
+    default: "#161616",
+    paper: "#1C1C1C",
   },
   text: {
     primary: "#fff",
     secondary: "#bbb",
   },
-  divider: "#444",
+  divider: "#3e3f3f",
 };

@@ -48,7 +48,7 @@ export const BlockView = () => {
         {filteredData.map((item) => (
           <Box
             key={item?.path}
-            border="1px dashed gray"
+            border={`.5px solid ${theme.palette.divider}`}
             component={Link}
             href={item?.path}
             sx={{

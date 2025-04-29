@@ -49,7 +49,7 @@ export default function FeatureCard({
           theme.palette.mode === "dark"
             ? "rgba(30, 30, 30, 0.9)"
             : "rgba(255, 255, 255, 0.1)",
-        border: `1px solid transparent`,
+        border: `.5px solid transparent`,
         borderRadius: 1,
         height: "100%",
         transition: "transform 0.3s, background 0.3s",

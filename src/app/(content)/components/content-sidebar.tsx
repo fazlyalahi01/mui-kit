@@ -3,6 +3,7 @@
 import { Logo } from "@/components/core/logo";
 import { contentSidebarPathGroups } from "@/router/router";
 import { TContentSidebarMode } from "@/types/content.types";
+import { ChevronRight as ChevronRightIcon } from "@mui/icons-material";
 import {
   Box,
   Collapse,
@@ -10,13 +11,12 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Typography,
   TextField,
+  Typography
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
-import { ChevronRight as ChevronRightIcon } from "@mui/icons-material";
+import React, { useEffect, useState } from "react";
 
 type ContentSidebarProps = {
   variant?: "sidebar" | "drawer";
@@ -273,7 +273,7 @@ export const ContentSidebar = ({
                                   primaryTypographyProps={{
                                     variant: "body2",
                                     color: "text.primary",
-                                    fontSize: {xs: 15, sm: 16},
+                                    fontSize: { xs: 15, sm: 16 },
                                   }}
                                 />
                               </ListItemButton>
@@ -328,8 +328,8 @@ export const ContentSidebar = ({
         sx={{
           mt: "auto",
           p: 2,
-          bgcolor: "background.default",
-          borderTop: 1,
+          bgcolor: "background.paper",
+          border: `.5px solid`,
           borderColor: "divider",
           textAlign: "center",
         }}

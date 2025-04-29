@@ -11,7 +11,7 @@ export const Footer = () => {
         backgroundColor: "background.paper",
         color: "text.secondary",
         // mt: "auto",
-        borderTop: `1px solid ${theme.palette.divider}`,
+        borderTop: `.5px solid ${theme.palette.divider}`,
       }}
     >
       <Container maxWidth="xl">

@@ -29,7 +29,7 @@ export const ComponentOverview = () => {
                 display: "flex",
                 flexDirection: "column",
                 position: "relative",
-                border: "1px solid transparent",
+                border: ".5px solid transparent",
                 borderRadius: "12px",
                 background: `linear-gradient(180deg, ${
                   isDarkMode ? theme.palette.grey[900] : theme.palette.grey[200]

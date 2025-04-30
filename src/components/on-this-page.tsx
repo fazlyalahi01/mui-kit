@@ -5,6 +5,7 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  useTheme,
 } from "@mui/material";
 // import Link from "next/link";
 
@@ -21,6 +22,7 @@ export const OnThisPage = ({ sections }: IProps) => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const theme = useTheme();
 
   return (
     <Box
@@ -28,7 +30,7 @@ export const OnThisPage = ({ sections }: IProps) => {
         position: "sticky",
         top: "1rem",
         display: { xs: "none", md: "block" },
-        px: 4,
+        pl: 4,
         // border: "1px solid red",
         width: "100%",
       }}
@@ -41,7 +43,7 @@ export const OnThisPage = ({ sections }: IProps) => {
             disablePadding
             sx={{
               "&:hover": {
-                backgroundColor: "action.hover",
+                color: theme.palette.primary.main,
               },
             }}
           >
@@ -54,7 +56,8 @@ export const OnThisPage = ({ sections }: IProps) => {
                     color: "text.secondary",
                     textDecoration: "none",
                     "&:hover": {
-                      textDecoration: "underline",
+                      // textDecoration: "underline",
+                      color: "primary.main",
                     },
                   }}
                 >
@@ -69,15 +72,15 @@ export const OnThisPage = ({ sections }: IProps) => {
       <Box
         sx={{
           mt: "auto",
-          p: 2,
-          bgcolor: "background.default",
-          borderTop: 1,
+          p: 1,
+          bgcolor: "background.paper",
+          border: `.5px solid`,
           borderColor: "divider",
           textAlign: "center",
         }}
       >
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          Want to contribute?
+          We are looking for sponsors!
         </Typography>
         <Link href="/contribute">
           <Typography
@@ -88,7 +91,7 @@ export const OnThisPage = ({ sections }: IProps) => {
               "&:hover": { textDecoration: "underline" },
             }}
           >
-            Join our community!
+            Support this project
           </Typography>
         </Link>
       </Box>

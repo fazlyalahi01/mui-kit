@@ -139,7 +139,7 @@ export const ContributeView = () => {
       <List dense>
         <ListItem
           sx={{
-            border: "1px solid var(--mui-palette-text-secondary)",
+            border: ".5px solid var(--mui-palette-text-secondary)",
             borderRadius: "8px",
           }}
         >
@@ -171,7 +171,7 @@ export const ContributeView = () => {
         </ListItem>
         <ListItem
           sx={{
-            border: "1px solid var(--mui-palette-text-secondary)",
+            border: ".5px solid var(--mui-palette-text-secondary)",
             borderRadius: "8px",
           }}
         >

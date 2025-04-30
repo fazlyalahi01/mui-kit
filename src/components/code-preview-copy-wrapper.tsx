@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Tab, Tabs } from "@mui/material";
+import { Box, Button, Tab, Tabs, useTheme } from "@mui/material";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -17,6 +17,7 @@ export const CodePreviewCopyWrapper: React.FC<CodePreviewWrapperProps> = ({
   const [tab, setTab] = useState<"preview" | "code">("preview");
   const [copySuccess, setCopySuccess] = useState<string>("");
   const [icon, setIcon] = useState<string>("eva:copy-fill");
+  const theme = useTheme();
 
   const handleCopy = async () => {
     try {
@@ -34,7 +35,14 @@ export const CodePreviewCopyWrapper: React.FC<CodePreviewWrapperProps> = ({
   };
 
   return (
-    <Box sx={{ border: "1px dotted gray", borderRadius: 2, px: 2, pb: 4 }}>
+    <Box
+      sx={{
+        border: `.5px solid ${theme.palette.divider}`,
+        borderRadius: theme.shape.borderRadius,
+        px: 2,
+        pb: 4,
+      }}
+    >
       <Tabs
         value={tab}
         onChange={(_, newValue) => setTab(newValue)}
@@ -48,7 +56,14 @@ export const CodePreviewCopyWrapper: React.FC<CodePreviewWrapperProps> = ({
       {tab === "preview" ? (
         <Box>{preview}</Box>
       ) : (
-        <Box sx={{ position: "relative", height: "400px", overflow: "auto", scrollbarWidth: "none"}}>
+        <Box
+          sx={{
+            position: "relative",
+            height: "400px",
+            overflow: "auto",
+            scrollbarWidth: "none",
+          }}
+        >
           <Button
             variant="contained"
             size="small"

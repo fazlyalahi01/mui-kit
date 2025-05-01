@@ -1,3 +1,4 @@
+import { pxToRem } from "@/utils/pxToRem";
 import {
   Box,
   Link,
@@ -7,7 +8,6 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-// import Link from "next/link";
 
 interface IProps {
   sections: {
@@ -31,7 +31,6 @@ export const OnThisPage = ({ sections }: IProps) => {
         top: "1rem",
         display: { xs: "none", md: "block" },
         pl: 4,
-        // border: "1px solid red",
         width: "100%",
       }}
     >
@@ -77,6 +76,7 @@ export const OnThisPage = ({ sections }: IProps) => {
           border: `.5px solid`,
           borderColor: "divider",
           textAlign: "center",
+          maxWidth: pxToRem(200),
         }}
       >
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>

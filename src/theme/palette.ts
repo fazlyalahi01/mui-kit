@@ -5,8 +5,8 @@ export const lightPalette: PaletteOptions = {
   primary: { main: "#0077b6" },
   secondary: { main: "#333" },
   background: {
-    default: "#f9f9f9",
-    paper: "#ffffff",
+    default: "#ffffff",
+    paper: "#F5F9FD",
   },
   text: {
     primary: "#111",

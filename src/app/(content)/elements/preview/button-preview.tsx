@@ -20,7 +20,7 @@ import { Box, Button, IconButton } from "@mui/material";
 
 export const Button1Preview = () => {
   return (
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, p: 2 }}>
+    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2}}>
       <Button variant="outlined" startIcon={<DeleteIcon />}>
         Trash
       </Button>

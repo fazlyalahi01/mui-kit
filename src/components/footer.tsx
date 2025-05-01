@@ -8,7 +8,7 @@ export const Footer = () => {
       component="footer"
       sx={{
         py: 2,
-        backgroundColor: "background.paper",
+        backgroundColor: "background.default",
         color: "text.secondary",
         // mt: "auto",
         borderTop: `.5px solid ${theme.palette.divider}`,

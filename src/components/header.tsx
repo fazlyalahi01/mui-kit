@@ -48,7 +48,7 @@ export const Header = () => {
       elevation={0}
       sx={{
         borderBottom: `.5px solid ${theme.palette.divider}`,
-        backgroundColor: "background.paper",
+        backgroundColor: "background.default",
       }}
     >
       <Container maxWidth="xl">

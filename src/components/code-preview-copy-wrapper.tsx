@@ -1,9 +1,9 @@
 "use client";
+import { Iconify } from "@/components/iconify"; // Ensure this works in your setup
+import { getCustomSyntaxStyle } from "@/utils/getCustomSyntaxStyle";
 import { Box, Button, Tab, Tabs, useTheme } from "@mui/material";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { Iconify } from "@/components/iconify"; // Ensure this works in your setup
 
 interface CodePreviewWrapperProps {
   codeString: string;
@@ -41,6 +41,7 @@ export const CodePreviewCopyWrapper: React.FC<CodePreviewWrapperProps> = ({
         borderRadius: theme.shape.borderRadius,
         px: 2,
         pb: 4,
+        bgcolor: "background.paper",
       }}
     >
       <Tabs
@@ -53,39 +54,53 @@ export const CodePreviewCopyWrapper: React.FC<CodePreviewWrapperProps> = ({
         <Tab value="code" label="Code" />
       </Tabs>
 
-      {tab === "preview" ? (
-        <Box>{preview}</Box>
-      ) : (
-        <Box
-          sx={{
-            position: "relative",
-            height: "400px",
-            overflow: "auto",
-            scrollbarWidth: "none",
-          }}
-        >
-          <Button
-            variant="contained"
-            size="small"
-            onClick={handleCopy}
+      <Box sx={{ bgcolor: "background.default",  p: 2, borderRadius: theme.shape.borderRadius}}>
+        {tab === "preview" ? (
+          <Box>{preview}</Box>
+        ) : (
+          <Box
             sx={{
-              position: "absolute",
-              top: 10,
-              right: 10,
-              zIndex: 10,
-              display: "flex",
-              gap: 1,
-              alignItems: "center",
+              position: "relative",
+              height: "410px",
+              overflow: "auto",
+              scrollbarWidth: "none",
+              
             }}
           >
-            <Iconify icon={icon} />
-            {copySuccess ? "Copied" : "Copy"}
-          </Button>
-          <SyntaxHighlighter language="tsx" style={oneDark}>
-            {codeString}
-          </SyntaxHighlighter>
-        </Box>
-      )}
+            <Button
+              variant="contained"
+              size="small"
+              onClick={handleCopy}
+              sx={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                zIndex: 10,
+                display: "flex",
+                gap: 1,
+                alignItems: "center",
+                bgcolor: "background.paper",
+                color: "text.primary",
+                border: `1px solid ${theme.palette.divider}`,
+                boxShadow: "none",
+                // ":hover": {
+                //   bgcolor: "primary.main",
+                //   color: "background.default",
+                // },
+              }}
+            >
+              <Iconify icon={icon} />
+              {copySuccess ? "Copied" : "Copy"}
+            </Button>
+            <SyntaxHighlighter
+              language="tsx"
+              style={getCustomSyntaxStyle(theme.palette.mode)}
+            >
+              {codeString}
+            </SyntaxHighlighter>
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };

@@ -8,16 +8,11 @@ import { Box, Divider, Grid } from "@mui/material";
 import { button1CodeString } from "../code-string/button-code-string";
 import { Button1Preview } from "../preview/button-preview";
 
-// Reusable OnThisPage component
-
 export const ButtonView = () => {
-  // Define sections for this page
   const sections = [
     { title: "#1 Icon Buttons", id: "button-section-1" },
     { title: "#2 Gradient Buttons", id: "button-section-2" },
     { title: "#3 Color Buttons", id: "button-section-3" },
-
-    // Add more sections here for other button types or future content
   ];
 
   return (

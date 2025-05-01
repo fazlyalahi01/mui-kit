@@ -54,6 +54,7 @@ export const OnThisPage = ({ sections }: IProps) => {
                   sx={{
                     color: "text.secondary",
                     textDecoration: "none",
+                    textAlign: "left",
                     "&:hover": {
                       // textDecoration: "underline",
                       color: "primary.main",

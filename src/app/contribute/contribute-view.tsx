@@ -251,10 +251,7 @@ export const ContributeView = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid
-        size={{ xs: 0, md: 4 }}
-        sx={{ position: "sticky", top: 100 }}
-      >
+      <Grid size={{ xs: 0, md: 4 }}>
         <OnThisPage sections={sections} />
       </Grid>
     </Grid>

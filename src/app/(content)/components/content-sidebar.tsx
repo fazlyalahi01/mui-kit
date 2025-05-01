@@ -83,6 +83,7 @@ export const ContentSidebar = ({
         "&::-webkit-scrollbar": {
           display: "none",
         },
+        // backgroundColor: "background.paper",
       }}
     >
       {variant === "drawer" && (

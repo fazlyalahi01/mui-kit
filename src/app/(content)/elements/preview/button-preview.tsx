@@ -1,158 +1,120 @@
-import {
-  ChevronLeft,
-  ChevronRight,
-  Close,
-  Facebook,
-  Favorite,
-  GitHub,
-  Google,
-  Twitter,
-} from "@mui/icons-material";
-import AddIcon from "@mui/icons-material/Add";
-import ClipboardIcon from "@mui/icons-material/Assignment";
-import DeleteIcon from "@mui/icons-material/Delete";
-import DownloadIcon from "@mui/icons-material/Download";
-import MenuIcon from "@mui/icons-material/Menu";
-import PersonIcon from "@mui/icons-material/Person";
-import SearchIcon from "@mui/icons-material/Search";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import { Box, Button, IconButton } from "@mui/material";
+import { Stack, Button, Box, Divider } from "@mui/material";
 
 export const Button1Preview = () => {
   return (
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2}}>
-      <Button variant="outlined" startIcon={<DeleteIcon />}>
-        Trash
-      </Button>
+    <Box>
+      {/* Custom Size */}
+      <Stack direction="row" spacing={2} flexWrap="wrap" alignItems={"center"}>
+        <Box>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ fontSize: "0.625rem", padding: "3px 8px", minWidth: "auto" }}
+          >
+            xs
+          </Button>
+        </Box>
+        <Box>
+          <Button variant="contained" color="primary" size="small">
+            small
+          </Button>
+        </Box>
+        <Box>
+          <Button variant="contained" color="primary" size="medium">
+            medium
+          </Button>
+        </Box>
+        <Box>
+          <Button variant="contained" color="primary" size="large">
+            large
+          </Button>
+        </Box>
 
-      <Button
-        variant="contained"
-        startIcon={<Favorite />}
-        sx={{
-          borderRadius: "50px",
-          background: (theme) =>
-            `linear-gradient(to right, ${theme.palette.primary.light}, ${theme.palette.primary.main})`,
-        }}
-      >
-        Rounded
-      </Button>
+        <Box>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ fontSize: "1rem", padding: "10px 20px" }}
+          >
+            xl
+          </Button>
+        </Box>
+        <Box>
+          <Button
+            color="primary"
+            variant="contained"
+            size="small"
+            sx={{
+              fontSize: "0.65rem",
+              padding: "2px 8px",
+              minWidth: "64px",
+              height: "94px",
+            }}
+          >
+            Custom Size
+          </Button>
+        </Box>
+      </Stack>
+      <Divider sx={{ my: 2 }} />
+      {/* Custom Shapes */}
+      <Stack direction="row" spacing={2} flexWrap="wrap" alignItems={"center"}>
+        <Box>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ borderRadius: "5px" }}
+          >
+            Rounded
+          </Button>
+        </Box>
 
-      <Button
-        variant="contained"
-        startIcon={<ClipboardIcon />}
-        sx={{ boxShadow: 3, backgroundColor: "error.main" }}
-      >
-        Raised
-      </Button>
+        <Box>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ borderRadius: "50px", padding: "6px 20px" }}
+          >
+            Pill Shape
+          </Button>
+        </Box>
+        <Box>
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "50%",
+              minWidth: 0,
+              width: 68,
+              height: 68,
+              padding: 0,
+            }}
+          >
+            Circle
+          </Button>
+        </Box>
+        <Box>
+          <Button
+            variant="contained"
+            sx={{ width: 64, height: 64, borderRadius: 0 }}
+          >
+            Sq
+          </Button>
+        </Box>
 
-      <Button variant="outlined" startIcon={<VisibilityIcon />}>
-        Icon Visible
-      </Button>
-
-      <IconButton
-        sx={{ backgroundColor: "primary.main", color: "common.white" }}
-      >
-        <AddIcon />
-      </IconButton>
-      <IconButton sx={{ backgroundColor: "grey.300", color: "common.black" }}>
-        <Close />
-      </IconButton>
-
-      <IconButton
-        sx={{ backgroundColor: "common.black", color: "common.white" }}
-      >
-        <PersonIcon />
-      </IconButton>
-      <IconButton sx={{ backgroundColor: "grey.300", color: "common.black" }}>
-        <DeleteIcon />
-      </IconButton>
-
-      <IconButton sx={{ backgroundColor: "grey.300", color: "common.black" }}>
-        <SearchIcon />
-      </IconButton>
-
-      <IconButton sx={{ backgroundColor: "grey.300", color: "common.black" }}>
-        <MenuIcon />
-      </IconButton>
-
-      <Button
-        variant="outlined"
-        startIcon={<DownloadIcon />}
-        sx={{ borderRadius: "50px" }}
-      />
-
-      <Button
-        variant="text"
-        startIcon={<ChevronLeft />}
-        sx={{ color: "primary.main" }}
-      >
-        Back
-      </Button>
-      <Button
-        variant="text"
-        endIcon={<ChevronRight />}
-        sx={{ color: "primary.main" }}
-      >
-        Next
-      </Button>
-      {/* New social sign-in buttons */}
-      <Button
-        variant="outlined"
-        startIcon={<Google />}
-        sx={{
-          borderColor: "#DADCE0",
-          color: "#3C4043",
-          backgroundColor: "#FFFFFF",
-          "&:hover": {
-            backgroundColor: "#F8F9FA",
-            borderColor: "#DADCE0",
-          },
-        }}
-      >
-        Sign in with Google
-      </Button>
-
-      <Button
-        variant="contained"
-        startIcon={<Facebook />}
-        sx={{
-          backgroundColor: "#1877F2",
-          color: "common.white",
-          "&:hover": {
-            backgroundColor: "#166FE5",
-          },
-        }}
-      >
-        Sign in with Facebook
-      </Button>
-
-      <Button
-        variant="contained"
-        startIcon={<GitHub />}
-        sx={{
-          backgroundColor: "#24292E",
-          color: "common.white",
-          "&:hover": {
-            backgroundColor: "#1F2428",
-          },
-        }}
-      >
-        Sign in with GitHub
-      </Button>
-
-      <Button
-        variant="contained"
-        startIcon={<Twitter />}
-        sx={{
-          backgroundColor: "#1DA1F2",
-          color: "common.white",
-          "&:hover": {
-            backgroundColor: "#1A91DA",
-          },
-        }}
-      >
-        Sign in with Twitter
-      </Button>
+        <Box>
+          <Button
+            variant="contained"
+            sx={{
+              clipPath:
+                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+              width: 100,
+              height: 56,
+              padding: 0,
+            }}
+          >
+            Hex
+          </Button>
+        </Box>
+      </Stack>
     </Box>
   );
 };

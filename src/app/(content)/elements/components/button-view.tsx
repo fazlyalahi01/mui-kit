@@ -10,9 +10,11 @@ import { Button1Preview } from "../preview/button-preview";
 
 export const ButtonView = () => {
   const sections = [
-    { title: "#1 Icon Buttons", id: "button-section-1" },
-    { title: "#2 Gradient Buttons", id: "button-section-2" },
-    { title: "#3 Color Buttons", id: "button-section-3" },
+    { title: "#1 Contained", id: "button-section-1" },
+    { title: "#2 Outlined", id: "button-section-2" },
+    { title: "#3 Text", id: "button-section-3" },
+    { title: "#4 Soft", id: "button-section-3" },
+    { title: "#5 Icon", id: "button-section-4" },
   ];
 
   return (
@@ -33,8 +35,8 @@ export const ButtonView = () => {
 
           <Box sx={{ mb: 4 }}>
             <SectionTitle
-              title="Icon Buttons"
-              description="All types icon buttons in one place. This is the section for icon buttons."
+              title="Contained"
+              description="Default contained button. This is the section for contained buttons."
               id="button-section-1"
             />
 
@@ -43,30 +45,7 @@ export const ButtonView = () => {
               preview={<Button1Preview />}
             />
           </Box>
-          <Box sx={{ mb: 4 }}>
-            <SectionTitle
-              title="Gradient Buttons"
-              description="All types icon buttons in one place. This is the section for icon buttons."
-              id="button-section-2"
-            />
-
-            <CodePreviewCopyWrapper
-              codeString={button1CodeString}
-              preview={<Button1Preview />}
-            />
-          </Box>
-          <Box sx={{ mb: 4 }}>
-            <SectionTitle
-              title="Color Buttons"
-              description="All types icon buttons in one place. This is the section for icon buttons."
-              id="button-section-3"
-            />
-
-            <CodePreviewCopyWrapper
-              codeString={button1CodeString}
-              preview={<Button1Preview />}
-            />
-          </Box>
+          
         </Box>
       </Grid>
       <Grid size={{ xs: 0, md: 2 }}>

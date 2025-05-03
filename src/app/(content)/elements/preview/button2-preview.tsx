@@ -1,13 +1,13 @@
 import { Stack, Button, Box, Divider } from "@mui/material";
 
-export const Button1Preview = () => {
+export const Button2Preview = () => {
   return (
     <Box>
-      {/* Custom Size */}
-      <Stack direction="row" spacing={2} flexWrap="wrap" alignItems={"center"}>
+      {/* Custom Sizes */}
+      <Stack direction="row" spacing={2} flexWrap="wrap" alignItems="center">
         <Box>
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             sx={{ fontSize: "0.625rem", padding: "3px 8px", minWidth: "auto" }}
           >
@@ -15,24 +15,23 @@ export const Button1Preview = () => {
           </Button>
         </Box>
         <Box>
-          <Button variant="contained" color="primary" size="small">
+          <Button variant="outlined" color="primary" size="small">
             small
           </Button>
         </Box>
         <Box>
-          <Button variant="contained" color="primary" size="medium">
+          <Button variant="outlined" color="primary" size="medium">
             medium
           </Button>
         </Box>
         <Box>
-          <Button variant="contained" color="primary" size="large">
+          <Button variant="outlined" color="primary" size="large">
             large
           </Button>
         </Box>
-
         <Box>
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             sx={{ fontSize: "1rem", padding: "10px 20px" }}
           >
@@ -41,13 +40,13 @@ export const Button1Preview = () => {
         </Box>
         <Box>
           <Button
+            variant="outlined"
             color="primary"
-            variant="contained"
             size="small"
             sx={{
               fontSize: "0.65rem",
               padding: "2px 8px",
-              minWidth: "64px",
+              minWidth: "204px",
               height: "94px",
             }}
           >
@@ -55,22 +54,23 @@ export const Button1Preview = () => {
           </Button>
         </Box>
       </Stack>
+
       <Divider sx={{ my: 2 }} />
+
       {/* Custom Shapes */}
-      <Stack direction="row" spacing={2} flexWrap="wrap" alignItems={"center"}>
+      <Stack direction="row" spacing={2} flexWrap="wrap" alignItems="center">
         <Box>
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             sx={{ borderRadius: "5px" }}
           >
             Rounded
           </Button>
         </Box>
-
         <Box>
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             sx={{ borderRadius: "50px", padding: "6px 20px" }}
           >
@@ -79,7 +79,7 @@ export const Button1Preview = () => {
         </Box>
         <Box>
           <Button
-            variant="contained"
+            variant="outlined"
             sx={{
               borderRadius: "50%",
               minWidth: 0,
@@ -93,25 +93,30 @@ export const Button1Preview = () => {
         </Box>
         <Box>
           <Button
-            variant="contained"
+            variant="outlined"
             sx={{ width: 64, height: 64, borderRadius: 0 }}
           >
             Sq
           </Button>
         </Box>
-
         <Box>
           <Button
-            variant="contained"
+            variant="outlined"
             sx={{
-              clipPath:
-                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-              width: 100,
-              height: 56,
-              padding: 0,
+              position: "relative",
+              color: "transparent",
+              border: "2px solid",
+              borderImage: "linear-gradient(45deg, #3f51b5, #9c27b0) 1",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              backgroundImage: "linear-gradient(45deg, #3f51b5, #9c27b0)",
+              "&:hover": {
+                borderImage: "linear-gradient(45deg, #9c27b0, #3f51b5) 1",
+                backgroundImage: "linear-gradient(45deg, #9c27b0, #3f51b5)",
+              },
             }}
           >
-            Hex
+            Gradient Outline
           </Button>
         </Box>
       </Stack>

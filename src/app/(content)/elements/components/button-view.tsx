@@ -6,7 +6,8 @@ import { SectionTitle } from "@/components/core/section-title";
 import { OnThisPage } from "@/components/on-this-page";
 import { Box, Divider, Grid } from "@mui/material";
 import { button1CodeString } from "../code-string/button-code-string";
-import { Button1Preview } from "../preview/button-preview";
+import { Button1Preview } from "../preview/button1-preview";
+import { Button2Preview } from "../preview/button2-preview";
 
 export const ButtonView = () => {
   const sections = [
@@ -33,19 +34,26 @@ export const ButtonView = () => {
           />
           <Divider sx={{ my: 4 }} />
 
+          {/* contained buttons */}
           <Box sx={{ mb: 4 }}>
-            <SectionTitle
-              title="Contained"
-              description="Default contained button. This is the section for contained buttons."
-              id="button-section-1"
-            />
+            <SectionTitle title="Contained" id="button-section-1" />
 
             <CodePreviewCopyWrapper
               codeString={button1CodeString}
               preview={<Button1Preview />}
             />
           </Box>
-          
+        </Box>
+        {/* outlined buttons */}
+        <Box>
+          <Box sx={{ mb: 4 }}>
+            <SectionTitle title="Outlined" id="button-section-2" />
+
+            <CodePreviewCopyWrapper
+              codeString={button1CodeString}
+              preview={<Button2Preview />}
+            />
+          </Box>
         </Box>
       </Grid>
       <Grid size={{ xs: 0, md: 2 }}>

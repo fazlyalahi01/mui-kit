@@ -8,14 +8,17 @@ import { Box, Divider, Grid } from "@mui/material";
 import { button1CodeString } from "../code-string/button-code-string";
 import { Button1Preview } from "../preview/button1-preview";
 import { Button2Preview } from "../preview/button2-preview";
+import { Button3Preview } from "../preview/button3-preview";
+import { Button4Preview } from "../preview/button4-preview";
+import { Button5Preview } from "../preview/button5-preview";
 
 export const ButtonView = () => {
   const sections = [
     { title: "#1 Contained", id: "button-section-1" },
     { title: "#2 Outlined", id: "button-section-2" },
     { title: "#3 Text", id: "button-section-3" },
-    { title: "#4 Soft", id: "button-section-3" },
-    { title: "#5 Icon", id: "button-section-4" },
+    { title: "#4 Soft", id: "button-section-4" },
+    { title: "#5 Icon Buttons", id: "button-section-5" },
   ];
 
   return (
@@ -52,6 +55,39 @@ export const ButtonView = () => {
             <CodePreviewCopyWrapper
               codeString={button1CodeString}
               preview={<Button2Preview />}
+            />
+          </Box>
+        </Box>
+        {/* text buttons */}
+        <Box>
+          <Box sx={{ mb: 4 }}>
+            <SectionTitle title="Text" id="button-section-3" />
+
+            <CodePreviewCopyWrapper
+              codeString={button1CodeString}
+              preview={<Button3Preview />}
+            />
+          </Box>
+        </Box>
+        {/* soft buttons */}
+        <Box>
+          <Box sx={{ mb: 4 }}>
+            <SectionTitle title="Soft" id="button-section-3" />
+
+            <CodePreviewCopyWrapper
+              codeString={button1CodeString}
+              preview={<Button4Preview />}
+            />
+          </Box>
+        </Box>
+        {/* icon buttons */}
+        <Box>
+          <Box sx={{ mb: 4 }}>
+            <SectionTitle title="Icon Buttons" id="button-section-3" />
+
+            <CodePreviewCopyWrapper
+              codeString={button1CodeString}
+              preview={<Button5Preview />}
             />
           </Box>
         </Box>
